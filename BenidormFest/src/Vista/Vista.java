@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Controlador.Controlador;
+
 public class Vista extends JFrame {
 
 	private JPanel contentPane;
@@ -19,6 +21,7 @@ public class Vista extends JFrame {
 				try {
 					Vista frame = new Vista();
 					frame.setVisible(true);
+					Controlador controlador = new Controlador(frame);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -31,7 +34,7 @@ public class Vista extends JFrame {
 	 */
 	public Vista() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 796, 513);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
