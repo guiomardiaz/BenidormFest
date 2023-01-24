@@ -64,6 +64,7 @@ import Vista.Vista;
 
 		private double[] recuperar1() {
 			double[] edades = new double[6];
+			String sentencia = "SELECT RANGO_1_9, RANGO_10_17, RANGO_18_25, RANGO_26_40, RANGO_41_65, RANGO_MAS_66";
 			
 			return edades;
 		}
