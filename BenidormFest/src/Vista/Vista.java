@@ -7,10 +7,15 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Controlador.Controlador;
+import javax.swing.JButton;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class Vista extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField txtBienvenidoALas;
 
 	/**
 	 * Launch the application.
@@ -34,11 +39,24 @@ public class Vista extends JFrame {
 	 */
 	public Vista() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 796, 513);
+		setBounds(100, 100, 1152, 673);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnNewButton = new JButton("EMPEZAR");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnNewButton.setBounds(419, 516, 214, 98);
+		contentPane.add(btnNewButton);
+		
+		txtBienvenidoALas = new JTextField();
+		txtBienvenidoALas.setHorizontalAlignment(SwingConstants.CENTER);
+		txtBienvenidoALas.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtBienvenidoALas.setText("Bienvenido a las votaciones de Benidorm Fest");
+		txtBienvenidoALas.setBounds(293, 39, 437, 53);
+		contentPane.add(txtBienvenidoALas);
+		txtBienvenidoALas.setColumns(10);
 	}
-
 }
