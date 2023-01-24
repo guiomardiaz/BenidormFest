@@ -20,15 +20,19 @@ import Vista.Vista;
 		
 		public Vista vista = new Vista();
 		public Connection conexion;
+		
 
 		public Controlador (Vista vista) throws IOException, ClassNotFoundException, SQLException, UnsupportedAudioFileException, LineUnavailableException {
 			this.vista = vista;
 			vista.btnEmpezar.addActionListener(this);
 			conexion = crearConexion();
 			
+			double[] numEdades = recuperar1();
+			
 		}
 
-		
+
+
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -54,6 +58,14 @@ import Vista.Vista;
 				e.printStackTrace();
 			}
 			return conexion;
+		}//end crear conexion
+
+		
+
+		private double[] recuperar1() {
+			double[] edades = new double[6];
+			
+			return edades;
 		}
 		
 	}//end controlador
