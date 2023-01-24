@@ -24,6 +24,7 @@ public class Vista extends JFrame {
 	public JLabel lblFoto;
 	public JLabel lblBienvenido;
 	public JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
 
 	/**
 	 * Launch the application.
@@ -81,5 +82,11 @@ public class Vista extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblNewLabel.setBounds(285, 341, 531, 37);
 		PanelInicio.add(lblNewLabel);
+		
+		lblNewLabel_1 = new JLabel("por los votantes de cada Comunidad");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setBounds(365, 388, 397, 26);
+		PanelInicio.add(lblNewLabel_1);
 	}
 }
