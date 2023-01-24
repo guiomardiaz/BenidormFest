@@ -16,6 +16,7 @@ public class Vista extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtBienvenidoALas;
+	public JButton btnEmpezar;
 
 	/**
 	 * Launch the application.
@@ -46,10 +47,10 @@ public class Vista extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("EMPEZAR");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNewButton.setBounds(419, 516, 214, 98);
-		contentPane.add(btnNewButton);
+		 btnEmpezar = new JButton("EMPEZAR");
+		btnEmpezar.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnEmpezar.setBounds(419, 516, 214, 98);
+		contentPane.add(btnEmpezar);
 		
 		txtBienvenidoALas = new JTextField();
 		txtBienvenidoALas.setHorizontalAlignment(SwingConstants.CENTER);
