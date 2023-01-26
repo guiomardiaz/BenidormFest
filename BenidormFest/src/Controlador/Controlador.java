@@ -109,7 +109,7 @@ import Vista.Vista;
 				//--------------------------------------------------------------
 				for(int i = 0; i<porcentajes.length; i++) {
 					habitantes[i] =  (aux[i]*aux[6])/100;
-					habitantes[i] = (int) (habitantes[i]*porcentajes[i]);
+					habitantes[i] = (int) (habitantes[i]*porcentajes[i])/100;
 				}
 			}catch(Exception e) {
 				e.printStackTrace();
