@@ -33,6 +33,25 @@ import Vista.Vista;
 			System.out.println("Conexion realizada");
 			
 			int[] habitantesAndalucia= recuperarHabitantes("Andalucia", conexion); 
+			int[] habitantesAragon= recuperarHabitantes("Aragon", conexion); 
+			int[] habitantesAsturias= recuperarHabitantes("Asturias", conexion); 
+			int[] habitantesBaleares= recuperarHabitantes("Baleares", conexion); 
+			int[] habitantesCanarias= recuperarHabitantes("Canarias", conexion); 
+			int[] habitantesCantabria= recuperarHabitantes("Cantabria", conexion); 
+			int[] habitantesCLM= recuperarHabitantes("Castilla La Mancha", conexion); 
+			int[] habitantesCYL= recuperarHabitantes("Castilla y Leon", conexion); 
+			int[] habitantesCatalunia= recuperarHabitantes("Catalunia", conexion); 
+			int[] habitantesCeuta= recuperarHabitantes("Ceuta", conexion); 
+			int[] habitantesValencia= recuperarHabitantes("Comunidad Valenciana", conexion); 
+			int[] habitantesExtremadura= recuperarHabitantes("Extremadura", conexion); 
+			int[] habitantesGalicia= recuperarHabitantes("Galicia", conexion); 
+			int[] habitantesRioja= recuperarHabitantes("La Rioja", conexion); 
+			int[] habitantesMadrid= recuperarHabitantes("Madrid", conexion); 
+			int[] habitantesMelilla= recuperarHabitantes("Melilla", conexion); 
+			int[] habitantesMurcia= recuperarHabitantes("Murcia", conexion); 
+			int[] habitantesNavarra= recuperarHabitantes("Navarra", conexion); 
+			int[] habitantesVascos= recuperarHabitantes("Pais Vasco", conexion); 
+			
 			for(int i = 0; i<habitantesAndalucia.length; i++) {
 			System.out.println(habitantesAndalucia[i]);
 			}
