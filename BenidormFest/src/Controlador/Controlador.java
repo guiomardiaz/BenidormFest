@@ -51,11 +51,26 @@ import Vista.Vista;
 			int[] habitantesMurcia= recuperarHabitantes("Murcia", conexion); 
 			int[] habitantesNavarra= recuperarHabitantes("Navarra", conexion); 
 			int[] habitantesVascos= recuperarHabitantes("Pais Vasco", conexion); 
+			int totalAndalucia = contadorTotal(habitantesAndalucia);
+			int totalAragon = contadorTotal(habitantesAragon);
 			
 			for(int i = 0; i<habitantesAndalucia.length; i++) {
 			System.out.println(habitantesAndalucia[i]);
 			}
+			System.out.println(totalAndalucia);
 			
+		}
+
+
+
+
+		private int contadorTotal(int[] habitantes) {
+			int contador = 0;
+			for(int i = 0; i<habitantes.length; i++) {
+				contador+= habitantes[i];
+			}
+			contador = contador-habitantes[0] - habitantes[1];
+			return contador;
 		}
 
 
