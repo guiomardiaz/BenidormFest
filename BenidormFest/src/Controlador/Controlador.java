@@ -51,10 +51,28 @@ import Vista.Vista;
 			int[] habitantesMurcia= recuperarHabitantes("Murcia", conexion); 
 			int[] habitantesNavarra= recuperarHabitantes("Navarra", conexion); 
 			int[] habitantesVascos= recuperarHabitantes("Pais Vasco", conexion); 			
-			int totalAndalucia = contadorTotal(habitantesAndalucia);
-			int totalAragon = contadorTotal(habitantesAragon);
 			
-			System.out.println(totalAndalucia);
+			int votantesAndalucia = contadorTotal(habitantesAndalucia);
+			int votantesAragon = contadorTotal(habitantesAragon);
+			int votantesAsturias = contadorTotal(habitantesAsturias);
+			int votantesBaleares = contadorTotal(habitantesBaleares);
+			int votantesCanarias = contadorTotal(habitantesCanarias);
+			int votantesCantabria = contadorTotal(habitantesCantabria);
+			int votantesCLM = contadorTotal(habitantesCLM);
+			int votantesCYL = contadorTotal(habitantesCYL);
+			int votantesCatalunia = contadorTotal(habitantesCatalunia);
+			int votantesCeuta = contadorTotal(habitantesCeuta);
+			int votantesValencia = contadorTotal(habitantesValencia);
+			int votantesExtremadura = contadorTotal(habitantesExtremadura);
+			int votantesGalicia = contadorTotal(habitantesGalicia);
+			int votantesRioja = contadorTotal(habitantesRioja);
+			int votantesMadrid = contadorTotal(habitantesMadrid);
+			int votantesMelilla = contadorTotal(habitantesMelilla);
+			int votantesMurcia = contadorTotal(habitantesMurcia);
+			int votantesNavarra = contadorTotal(habitantesNavarra);
+			int votantesVascos = contadorTotal(habitantesVascos);
+			
+			System.out.println(votantesAndalucia);
 			
 			/*for(int i = 0; i<habitantesAndalucia.length; i++) {
 			System.out.println(habitantesAndalucia[i]);
@@ -71,7 +89,7 @@ import Vista.Vista;
 			for(int i = 0; i<habitantes.length; i++) {
 				contador+= habitantes[i];
 			}
-			contador = contador-habitantes[0] - habitantes[1];
+			contador = contador - habitantes[0] - habitantes[1];
 			return contador;
 		}
 
