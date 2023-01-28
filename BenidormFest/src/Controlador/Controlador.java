@@ -73,6 +73,7 @@ import Vista.Vista;
 			int votantesVascos = contadorTotal(habitantesVascos);
 			
 			System.out.println(votantesAndalucia);
+			System.out.println(votantesAragon);
 			
 			/*for(int i = 0; i<habitantesAndalucia.length; i++) {
 			System.out.println(habitantesAndalucia[i]);
