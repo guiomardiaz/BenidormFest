@@ -10,11 +10,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import Modelo.Artista;
+import Modelo.Ciudadano;
 import Vista.Vista;
 
 
@@ -23,6 +26,9 @@ import Vista.Vista;
 		
 		public Vista vista = new Vista();
 		public Connection conexion;
+		public int votantesAndalucia;
+		public int[] habitantesAndalucia;
+		public ArrayList<Artista> artistas = new ArrayList<Artista>();
 		
 
 		public Controlador (Vista vista) throws IOException, ClassNotFoundException, SQLException, UnsupportedAudioFileException, LineUnavailableException {
@@ -32,7 +38,11 @@ import Vista.Vista;
 			
 			System.out.println("Conexion realizada");
 			
-			int[] habitantesAndalucia= recuperarHabitantes("Andalucia", conexion); 
+			//Creacion de artistas
+			artistas.add(new Artista("Joel"));
+			
+			
+			 habitantesAndalucia= recuperarHabitantes("Andalucia", conexion); 
 			int[] habitantesAragon= recuperarHabitantes("Aragon", conexion); 
 			int[] habitantesAsturias= recuperarHabitantes("Asturias", conexion); 
 			int[] habitantesBaleares= recuperarHabitantes("Baleares", conexion); 
@@ -52,7 +62,7 @@ import Vista.Vista;
 			int[] habitantesNavarra= recuperarHabitantes("Navarra", conexion); 
 			int[] habitantesVascos= recuperarHabitantes("Pais Vasco", conexion); 			
 			
-			int votantesAndalucia = contadorTotal(habitantesAndalucia);
+			 votantesAndalucia = contadorTotal(habitantesAndalucia);
 			int votantesAragon = contadorTotal(habitantesAragon);
 			int votantesAsturias = contadorTotal(habitantesAsturias);
 			int votantesBaleares = contadorTotal(habitantesBaleares);
@@ -82,7 +92,19 @@ import Vista.Vista;
 			
 		}
 
-
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if(e.getSource()== vista.btnEmpezar) {
+				//Generacion andaluces
+				for(int i = 0; i<votantesAndalucia; i++) {
+					Ciudadano andaluz = new Ciudadano("Andalucia", habitantesAndalucia, artistas);
+					andaluz.start();
+				}
+				
+				
+			}//end btn empezar
+		}//end action listener
+		
 
 
 		private int contadorTotal(int[] habitantes) {
@@ -97,13 +119,7 @@ import Vista.Vista;
 
 
 
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if(e.getSource()== vista.btnEmpezar) {
-				
-			}//end btn empezar
-		}//end action listener
-		
+	
 		
 		private Connection crearConexion() throws ClassNotFoundException, SQLException {
 			Connection conexion = null;
