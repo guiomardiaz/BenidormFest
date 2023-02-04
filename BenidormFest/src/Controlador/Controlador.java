@@ -39,10 +39,12 @@ public class Controlador implements ActionListener {
 	public Controlador(Vista vista) throws IOException, ClassNotFoundException, SQLException,
 			UnsupportedAudioFileException, LineUnavailableException {
 		this.vista = vista;
+		vista.panelInicioSesion.setVisible(false);
 		vista.btnEmpezar.addActionListener(this);
 		conexion = crearConexion();
 
 		System.out.println("Conexion realizada");
+		
 
 		// Creacion de artistas
 		artistas.add(new Artista("Joel"));

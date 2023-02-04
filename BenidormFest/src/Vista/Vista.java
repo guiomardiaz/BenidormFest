@@ -15,16 +15,19 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.BorderFactory;
+import javax.swing.JComboBox;
 
 public class Vista extends JFrame {
 
-	private JPanel contentPane;
-	public JPanel PanelInicio;
-	public JButton btnEmpezar;
+	public JPanel contentPane;
+	public JPanel PanelInicio, panelInicioSesion;
+	public JButton btnEmpezar, continuar;
 	public JLabel lblFoto;
 	public JLabel lblBienvenido;
 	public JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
+	public JTextField fieldNombre;
 
 	/**
 	 * Launch the application.
@@ -55,6 +58,51 @@ public class Vista extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		 panelInicioSesion = new JPanel();
+		panelInicioSesion.setBounds(0, 0, 1138, 636);
+		contentPane.add(panelInicioSesion);
+		panelInicioSesion.setLayout(null);
+		
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setBounds(258, 151, 67, 23);
+		lblNombre.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		panelInicioSesion.add(lblNombre);
+		
+		fieldNombre = new JTextField();
+		fieldNombre.setBounds(368, 157, 96, 19);
+		fieldNombre.setColumns(10);
+		panelInicioSesion.add(fieldNombre);
+		
+		JLabel lblContrasea = new JLabel("Año de nacimiento");
+		lblContrasea.setBounds(175, 201, 183, 23);
+		lblContrasea.setHorizontalAlignment(SwingConstants.CENTER);
+		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		panelInicioSesion.add(lblContrasea);
+		
+		 continuar = new JButton("CONTINUAR");
+		continuar.setBounds(522, 156, 111, 21);
+		continuar.setFont(new Font("Tahoma", Font.BOLD, 10));
+		panelInicioSesion.add(continuar);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(368, 206, 96, 18);
+		panelInicioSesion.add(comboBox);
+		
+		JLabel lblErrorLogin = new JLabel("");
+		lblErrorLogin.setBounds(474, 201, 191, 23);
+		lblErrorLogin.setForeground(new Color(128, 64, 64));
+		panelInicioSesion.add(lblErrorLogin);
+		
+		JLabel lblFondoIS = new JLabel("");
+		lblFondoIS.setBounds(165, 139, 500, 110);
+		lblFondoIS.setOpaque(true);
+		lblFondoIS.setBorder(BorderFactory.createLineBorder(Color.black));
+		lblFondoIS.setBackground(new Color(251, 254, 231));
+		panelInicioSesion.add(lblFondoIS);
+		
+		
 		
 		PanelInicio = new JPanel();
 		PanelInicio.setBackground(new Color(0, 0, 0));
