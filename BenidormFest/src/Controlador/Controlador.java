@@ -40,7 +40,7 @@ public class Controlador implements ActionListener {
 	public Controlador(Vista vista) throws IOException, ClassNotFoundException, SQLException,
 			UnsupportedAudioFileException, LineUnavailableException {
 		this.vista = vista;
-		vista.panelInicioSesion.setVisible(false);
+		//vista.panelInicioSesion.setVisible(false);
 		vista.btnEmpezar.addActionListener(this);
 		llenarComboBox();
 		
