@@ -23,6 +23,7 @@ import Vista.Vista;
 public class Controlador implements ActionListener {
 
 	public Vista vista = new Vista();
+	
 	public Connection conexion;
 	public int votantesAndalucia, votantesAragon, votantesAsturias, votantesBaleares, votantesCanarias,
 			votantesCantabria, votantesCLM, votantesCYL, votantesCatalunia, votantesCeuta, votantesValencia,
@@ -41,6 +42,9 @@ public class Controlador implements ActionListener {
 		this.vista = vista;
 		vista.panelInicioSesion.setVisible(false);
 		vista.btnEmpezar.addActionListener(this);
+		llenarComboBox();
+		
+		
 		conexion = crearConexion();
 
 		System.out.println("Conexion realizada");
@@ -261,6 +265,13 @@ public class Controlador implements ActionListener {
 			e.printStackTrace();
 		}
 		return habitantes;
+	}//
+	
+	public void llenarComboBox() {
+		int limite = 2023;
+		for(int i=limite; i>1930;i--) {
+			vista.comboBox.addItem(String.valueOf(i));
+		}
 	}
 
 }// end controlador

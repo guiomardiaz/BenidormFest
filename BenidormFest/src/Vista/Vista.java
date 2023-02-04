@@ -28,6 +28,7 @@ public class Vista extends JFrame {
 	public JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	public JTextField fieldNombre;
+	public JComboBox comboBox;
 
 	/**
 	 * Launch the application.
@@ -86,9 +87,10 @@ public class Vista extends JFrame {
 		continuar.setFont(new Font("Tahoma", Font.BOLD, 10));
 		panelInicioSesion.add(continuar);
 		
-		JComboBox comboBox = new JComboBox();
+		 comboBox = new JComboBox();
 		comboBox.setBounds(368, 206, 96, 18);
 		panelInicioSesion.add(comboBox);
+		
 		
 		JLabel lblErrorLogin = new JLabel("");
 		lblErrorLogin.setBounds(474, 201, 191, 23);
