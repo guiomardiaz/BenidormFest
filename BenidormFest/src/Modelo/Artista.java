@@ -2,6 +2,7 @@ package Modelo;
 
 public class Artista {
 	String nombre;
+	String urlFoto;
 	int votosTotales;
 	int votosAndaluces, votosAragoneses, votosAsturianos , votosBaleares ,votosCanarios ,
 	votosCantabricos, votosCLM ,votosCYL ,votosCatalanes ,votosValencianos ,votosExtremeños,

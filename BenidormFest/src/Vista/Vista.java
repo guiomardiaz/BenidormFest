@@ -138,5 +138,13 @@ public class Vista extends JFrame {
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setBounds(365, 388, 397, 26);
 		PanelInicio.add(lblNewLabel_1);
+		
+		JPanel panelComunidades = new JPanel();
+		panelComunidades.setBounds(0, 0, 10, 10);
+		contentPane.add(panelComunidades);
+		
+		JPanel panelArtistas = new JPanel();
+		panelArtistas.setBounds(0, 0, 10, 10);
+		contentPane.add(panelArtistas);
 	}
 }
