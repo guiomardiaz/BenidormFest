@@ -29,6 +29,7 @@ public class Vista extends JFrame {
 	private JLabel lblNewLabel_1;
 	public JTextField fieldNombre;
 	public JComboBox comboBox;
+	private JLabel lblEspana;
 
 	/**
 	 * Launch the application.
@@ -59,6 +60,16 @@ public class Vista extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		 
+		 JPanel panelComunidades = new JPanel();
+		 panelComunidades.setBounds(0, 0, 1138, 636);
+		 contentPane.add(panelComunidades);
+		 panelComunidades.setLayout(null);
+		 
+		 lblEspana = new JLabel("New label");
+		 lblEspana.setBounds(210, 5, 745, 621);
+		 panelComunidades.add(lblEspana);
+		 lblEspana.setIcon(new ImageIcon("Imagenes/espana.png"));
 		
 		 panelInicioSesion = new JPanel();
 		panelInicioSesion.setBounds(0, 0, 1138, 636);
@@ -138,10 +149,6 @@ public class Vista extends JFrame {
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setBounds(365, 388, 397, 26);
 		PanelInicio.add(lblNewLabel_1);
-		
-		JPanel panelComunidades = new JPanel();
-		panelComunidades.setBounds(0, 0, 10, 10);
-		contentPane.add(panelComunidades);
 		
 		JPanel panelArtistas = new JPanel();
 		panelArtistas.setBounds(0, 0, 10, 10);
