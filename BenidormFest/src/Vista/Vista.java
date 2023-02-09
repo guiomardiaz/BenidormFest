@@ -39,6 +39,8 @@ public class Vista extends JFrame {
 			rdbtnMurcia, rdbtnLaRioja, rdbtnBaleares, rdbtnCanarias, rdbtnCeuta, rdbtnGalicia;
 	private JLabel lblFondo;
 	private JLabel lblLogin;
+	private JLabel lblFondo2;
+	private JLabel lblFondo3;
 
 	/**
 	 * Launch the application.
@@ -69,174 +71,6 @@ public class Vista extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
-		panelInicioSesion = new JPanel();
-		panelInicioSesion.setBounds(0, 0, 1138, 636);
-		contentPane.add(panelInicioSesion);
-		panelInicioSesion.setLayout(null);
-		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Recuerdame en este diapositivo");
-		chckbxNewCheckBox.setForeground(new Color(255, 255, 255));
-		chckbxNewCheckBox.setBackground(new Color(0, 115, 170));
-		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxNewCheckBox.setBounds(408, 271, 268, 21);
-		panelInicioSesion.add(chckbxNewCheckBox);
-		
-		lblLogin = new JLabel("LOGIN");
-		lblLogin.setForeground(new Color(255, 255, 255));
-		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 23));
-		lblLogin.setBounds(514, 120, 79, 23);
-		panelInicioSesion.add(lblLogin);
-
-		JLabel lblNombre = new JLabel("Username");
-		lblNombre.setForeground(new Color(255, 255, 255));
-		lblNombre.setBounds(398, 177, 96, 23);
-		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		panelInicioSesion.add(lblNombre);
-
-		fieldNombre = new JTextField();
-		fieldNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		fieldNombre.setBounds(584, 179, 96, 23);
-		fieldNombre.setColumns(10);
-		fieldNombre.setToolTipText("Introduce tu nombre");
-		panelInicioSesion.add(fieldNombre);
-		
-
-		JLabel lblContrasea = new JLabel("Año nacimiento");
-		lblContrasea.setForeground(new Color(255, 255, 255));
-		lblContrasea.setBounds(355, 220, 183, 23);
-		lblContrasea.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		panelInicioSesion.add(lblContrasea);
-
-		continuar = new JButton("INICIAR SESION");
-		continuar.setBackground(new Color(189, 219, 233));
-		continuar.setBounds(453, 331, 202, 33);
-		continuar.setFont(new Font("Tahoma", Font.BOLD, 16));
-		panelInicioSesion.add(continuar);
-
-		comboBox = new JComboBox();
-		comboBox.setBounds(584, 221, 96, 23);
-		panelInicioSesion.add(comboBox);
-
-		JLabel lblErrorLogin = new JLabel("");
-		lblErrorLogin.setBounds(603, 425, 191, 23);
-		lblErrorLogin.setForeground(new Color(128, 64, 64));
-		panelInicioSesion.add(lblErrorLogin);
-
-		lblFondo = new JLabel("");
-		lblFondo.setBounds(0, 0, 1128, 626);
-		panelInicioSesion.add(lblFondo);
-		lblFondo.setIcon(new ImageIcon("src/Imagenes/fondo.jpg"));
-		
-
-		panelComunidades = new JPanel();
-		panelComunidades.setBounds(0, 0, 1138, 636);
-		contentPane.add(panelComunidades);
-		panelComunidades.setLayout(null);
-
-		rdbtnMelilla = new JRadioButton("MELILLA");
-		rdbtnMelilla.setBackground(Color.PINK);
-		rdbtnMelilla.setBounds(562, 502, 70, 15);
-		panelComunidades.add(rdbtnMelilla);
-
-		rdbtnCeuta = new JRadioButton("CEUTA");
-		rdbtnCeuta.setBackground(Color.PINK);
-		rdbtnCeuta.setBounds(502, 472, 70, 15);
-		panelComunidades.add(rdbtnCeuta);
-
-		rdbtnCanarias = new JRadioButton("");
-		rdbtnCanarias.setBackground(Color.PINK);
-		rdbtnCanarias.setBounds(765, 466, 21, 15);
-		panelComunidades.add(rdbtnCanarias);
-
-		rdbtnBaleares = new JRadioButton("");
-		rdbtnBaleares.setBackground(new Color(232, 227, 187));
-		rdbtnBaleares.setBounds(804, 283, 21, 15);
-		panelComunidades.add(rdbtnBaleares);
-
-		rdbtnLaRioja = new JRadioButton("");
-		rdbtnLaRioja.setBackground(new Color(235, 188, 233));
-		rdbtnLaRioja.setBounds(596, 160, 21, 21);
-		panelComunidades.add(rdbtnLaRioja);
-
-		rdbtnMurcia = new JRadioButton("");
-		rdbtnMurcia.setBackground(new Color(202, 233, 188));
-		rdbtnMurcia.setBounds(641, 364, 21, 21);
-		panelComunidades.add(rdbtnMurcia);
-
-		rdbtnAndalucia = new JRadioButton("");
-		rdbtnAndalucia.setBackground(new Color(232, 188, 188));
-		rdbtnAndalucia.setBounds(539, 380, 21, 21);
-		panelComunidades.add(rdbtnAndalucia);
-
-		rdbtnValencia = new JRadioButton("");
-		rdbtnValencia.setBackground(new Color(232, 188, 188));
-		rdbtnValencia.setBounds(673, 304, 21, 21);
-		panelComunidades.add(rdbtnValencia);
-
-		rdbtnExtremadura = new JRadioButton("");
-		rdbtnExtremadura.setBackground(new Color(197, 188, 235));
-		rdbtnExtremadura.setBounds(474, 303, 21, 21);
-		panelComunidades.add(rdbtnExtremadura);
-
-		rdbtnCLM = new JRadioButton("");
-		rdbtnCLM.setBackground(new Color(235, 188, 233));
-		rdbtnCLM.setBounds(596, 303, 21, 21);
-		panelComunidades.add(rdbtnCLM);
-
-		rdbtnMadrid = new JRadioButton("");
-		rdbtnMadrid.setBackground(new Color(197, 188, 235));
-		rdbtnMadrid.setBounds(559, 248, 21, 21);
-		panelComunidades.add(rdbtnMadrid);
-
-		rdbtnCYL = new JRadioButton("");
-		rdbtnCYL.setBackground(new Color(189, 219, 233));
-		rdbtnCYL.setBounds(508, 180, 21, 21);
-		panelComunidades.add(rdbtnCYL);
-
-		rdbtnCatalunya = new JRadioButton("");
-		rdbtnCatalunya.setBackground(new Color(232, 227, 187));
-		rdbtnCatalunya.setBounds(752, 191, 21, 21);
-		panelComunidades.add(rdbtnCatalunya);
-
-		rdbtnAragon = new JRadioButton("");
-		rdbtnAragon.setBackground(new Color(202, 233, 188));
-		rdbtnAragon.setBounds(673, 193, 21, 21);
-		panelComunidades.add(rdbtnAragon);
-
-		rdbtnNavarra = new JRadioButton("");
-		rdbtnNavarra.setBackground(new Color(232, 188, 188));
-		rdbtnNavarra.setBounds(629, 146, 21, 21);
-		panelComunidades.add(rdbtnNavarra);
-
-		rdbtnPaisVasco = new JRadioButton("");
-		rdbtnPaisVasco.setBackground(new Color(232, 227, 187));
-		rdbtnPaisVasco.setBounds(596, 125, 21, 21);
-		panelComunidades.add(rdbtnPaisVasco);
-
-		rdbtnGalicia = new JRadioButton("");
-		rdbtnGalicia.setBackground(new Color(232, 188, 188));
-		rdbtnGalicia.setBounds(397, 135, 28, 21);
-		panelComunidades.add(rdbtnGalicia);
-
-		rdbtnAsturias = new JRadioButton("");
-		rdbtnAsturias.setBackground(new Color(202, 233, 188));
-		rdbtnAsturias.setBounds(467, 110, 28, 21);
-		panelComunidades.add(rdbtnAsturias);
-
-		rdbtnCantabria = new JRadioButton("");
-		rdbtnCantabria.setBackground(new Color(197, 188, 235));
-		rdbtnCantabria.setBounds(539, 115, 21, 21);
-		panelComunidades.add(rdbtnCantabria);
-
-		lblEspana = new JLabel("");
-		lblEspana.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEspana.setBounds(202, 10, 830, 621);
-		panelComunidades.add(lblEspana);
-		lblEspana.setIcon(new ImageIcon("src/Imagenes/espana.png"));
 
 		panelArtistas = new JPanel();
 		panelArtistas.setBounds(0, 0, 1138, 626);
@@ -333,6 +167,183 @@ public class Vista extends JFrame {
 		btnVotarJulio.setBounds(890, 507, 85, 21);
 		panelArtistas.add(btnVotarJulio);
 
+		lblFondo3 = new JLabel("");
+		lblFondo3.setForeground(new Color(255, 255, 255));
+		lblFondo3.setBounds(0, 0, 1138, 638);
+		lblFondo3.setIcon(new ImageIcon("src/Imagenes/fondo2.jpg"));
+		panelArtistas.add(lblFondo3);
+
+		panelComunidades = new JPanel();
+		panelComunidades.setBounds(0, 0, 1138, 636);
+		contentPane.add(panelComunidades);
+		panelComunidades.setLayout(null);
+
+		rdbtnMelilla = new JRadioButton("MELILLA");
+		rdbtnMelilla.setBackground(Color.PINK);
+		rdbtnMelilla.setBounds(562, 502, 70, 15);
+		panelComunidades.add(rdbtnMelilla);
+
+		rdbtnCeuta = new JRadioButton("CEUTA");
+		rdbtnCeuta.setBackground(Color.PINK);
+		rdbtnCeuta.setBounds(502, 472, 70, 15);
+		panelComunidades.add(rdbtnCeuta);
+
+		rdbtnCanarias = new JRadioButton("");
+		rdbtnCanarias.setBackground(new Color(1, 45, 92));
+		rdbtnCanarias.setBounds(774, 450, 21, 15);
+		panelComunidades.add(rdbtnCanarias);
+
+		rdbtnBaleares = new JRadioButton("");
+		rdbtnBaleares.setBackground(new Color(232, 227, 187));
+		rdbtnBaleares.setBounds(804, 283, 21, 15);
+		panelComunidades.add(rdbtnBaleares);
+
+		rdbtnLaRioja = new JRadioButton("");
+		rdbtnLaRioja.setBackground(new Color(235, 188, 233));
+		rdbtnLaRioja.setBounds(596, 160, 21, 21);
+		panelComunidades.add(rdbtnLaRioja);
+
+		rdbtnMurcia = new JRadioButton("");
+		rdbtnMurcia.setBackground(new Color(202, 233, 188));
+		rdbtnMurcia.setBounds(641, 364, 21, 21);
+		panelComunidades.add(rdbtnMurcia);
+
+		rdbtnAndalucia = new JRadioButton("");
+		rdbtnAndalucia.setBackground(new Color(232, 188, 188));
+		rdbtnAndalucia.setBounds(539, 380, 21, 21);
+		panelComunidades.add(rdbtnAndalucia);
+
+		rdbtnValencia = new JRadioButton("");
+		rdbtnValencia.setBackground(new Color(232, 188, 188));
+		rdbtnValencia.setBounds(673, 304, 21, 21);
+		panelComunidades.add(rdbtnValencia);
+
+		rdbtnExtremadura = new JRadioButton("");
+		rdbtnExtremadura.setBackground(new Color(197, 188, 235));
+		rdbtnExtremadura.setBounds(474, 303, 21, 21);
+		panelComunidades.add(rdbtnExtremadura);
+
+		rdbtnCLM = new JRadioButton("");
+		rdbtnCLM.setBackground(new Color(235, 188, 233));
+		rdbtnCLM.setBounds(596, 303, 21, 21);
+		panelComunidades.add(rdbtnCLM);
+
+		rdbtnMadrid = new JRadioButton("");
+		rdbtnMadrid.setBackground(new Color(197, 188, 235));
+		rdbtnMadrid.setBounds(559, 248, 21, 21);
+		panelComunidades.add(rdbtnMadrid);
+
+		rdbtnCYL = new JRadioButton("");
+		rdbtnCYL.setBackground(new Color(189, 219, 233));
+		rdbtnCYL.setBounds(508, 180, 21, 21);
+		panelComunidades.add(rdbtnCYL);
+
+		rdbtnCatalunya = new JRadioButton("");
+		rdbtnCatalunya.setBackground(new Color(232, 227, 187));
+		rdbtnCatalunya.setBounds(752, 191, 21, 21);
+		panelComunidades.add(rdbtnCatalunya);
+
+		rdbtnAragon = new JRadioButton("");
+		rdbtnAragon.setBackground(new Color(202, 233, 188));
+		rdbtnAragon.setBounds(673, 193, 21, 21);
+		panelComunidades.add(rdbtnAragon);
+
+		rdbtnNavarra = new JRadioButton("");
+		rdbtnNavarra.setBackground(new Color(232, 188, 188));
+		rdbtnNavarra.setBounds(629, 146, 21, 21);
+		panelComunidades.add(rdbtnNavarra);
+
+		rdbtnPaisVasco = new JRadioButton("");
+		rdbtnPaisVasco.setBackground(new Color(232, 227, 187));
+		rdbtnPaisVasco.setBounds(596, 125, 21, 21);
+		panelComunidades.add(rdbtnPaisVasco);
+
+		rdbtnGalicia = new JRadioButton("");
+		rdbtnGalicia.setBackground(new Color(232, 188, 188));
+		rdbtnGalicia.setBounds(397, 135, 28, 21);
+		panelComunidades.add(rdbtnGalicia);
+
+		rdbtnAsturias = new JRadioButton("");
+		rdbtnAsturias.setBackground(new Color(202, 233, 188));
+		rdbtnAsturias.setBounds(467, 110, 28, 21);
+		panelComunidades.add(rdbtnAsturias);
+
+		rdbtnCantabria = new JRadioButton("");
+		rdbtnCantabria.setBackground(new Color(197, 188, 235));
+		rdbtnCantabria.setBounds(539, 115, 21, 21);
+		panelComunidades.add(rdbtnCantabria);
+
+		lblEspana = new JLabel("");
+		lblEspana.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEspana.setBounds(202, 10, 830, 621);
+		panelComunidades.add(lblEspana);
+		lblEspana.setIcon(new ImageIcon("src/Imagenes/espana.png"));
+
+		lblFondo2 = new JLabel("");
+		lblFondo2.setBounds(0, 0, 1138, 636);
+		lblFondo2.setIcon(new ImageIcon("src/Imagenes/fondo2.jpg"));
+		panelComunidades.add(lblFondo2);
+
+		panelInicioSesion = new JPanel();
+		panelInicioSesion.setBounds(0, 0, 1138, 636);
+		contentPane.add(panelInicioSesion);
+		panelInicioSesion.setLayout(null);
+
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Recuerdame en este diapositivo");
+		chckbxNewCheckBox.setForeground(new Color(255, 255, 255));
+		chckbxNewCheckBox.setBackground(new Color(0, 115, 170));
+		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chckbxNewCheckBox.setBounds(408, 271, 268, 21);
+		panelInicioSesion.add(chckbxNewCheckBox);
+
+		lblLogin = new JLabel("LOGIN");
+		lblLogin.setForeground(new Color(255, 255, 255));
+		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		lblLogin.setBounds(514, 120, 79, 23);
+		panelInicioSesion.add(lblLogin);
+
+		JLabel lblNombre = new JLabel("Username");
+		lblNombre.setForeground(new Color(255, 255, 255));
+		lblNombre.setBounds(398, 177, 96, 23);
+		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		panelInicioSesion.add(lblNombre);
+
+		fieldNombre = new JTextField();
+		fieldNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		fieldNombre.setBounds(584, 179, 96, 23);
+		fieldNombre.setColumns(10);
+		fieldNombre.setToolTipText("Introduce tu nombre");
+		panelInicioSesion.add(fieldNombre);
+
+		JLabel lblContrasea = new JLabel("Año nacimiento");
+		lblContrasea.setForeground(new Color(255, 255, 255));
+		lblContrasea.setBounds(355, 220, 183, 23);
+		lblContrasea.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		panelInicioSesion.add(lblContrasea);
+
+		continuar = new JButton("INICIAR SESION");
+		continuar.setBackground(new Color(189, 219, 233));
+		continuar.setBounds(453, 331, 202, 33);
+		continuar.setFont(new Font("Tahoma", Font.BOLD, 16));
+		panelInicioSesion.add(continuar);
+
+		comboBox = new JComboBox();
+		comboBox.setBounds(584, 221, 96, 23);
+		panelInicioSesion.add(comboBox);
+
+		JLabel lblErrorLogin = new JLabel("");
+		lblErrorLogin.setBounds(603, 425, 191, 23);
+		lblErrorLogin.setForeground(new Color(128, 64, 64));
+		panelInicioSesion.add(lblErrorLogin);
+
+		lblFondo = new JLabel("");
+		lblFondo.setBounds(0, 0, 1128, 626);
+		panelInicioSesion.add(lblFondo);
+		lblFondo.setIcon(new ImageIcon("src/Imagenes/fondo.jpg"));
+
 		PanelInicio = new JPanel();
 		PanelInicio.setBackground(new Color(0, 0, 0));
 		PanelInicio.setBounds(0, 0, 1138, 636);
@@ -368,7 +379,7 @@ public class Vista extends JFrame {
 		PanelInicio.add(lblNewLabel_1);
 
 		panelProceso = new JPanel();
-		panelProceso.setBounds(0, 0, 10, 10);
+		panelProceso.setBounds(0, 0, 1138, 636);
 		contentPane.add(panelProceso);
 	}
 }
