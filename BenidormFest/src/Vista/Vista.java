@@ -34,6 +34,20 @@ public class Vista extends JFrame {
 	private JRadioButton rdbtnAsturias;
 	private JRadioButton rdbtnCantabria;
 	private JRadioButton rdbtnPaisVasco;
+	private JRadioButton rdbtnNavarra;
+	private JRadioButton rdbtnNavarra_1;
+	private JRadioButton rdbtnCatalunya;
+	private JRadioButton rdbtnCYL;
+	private JRadioButton rdbtnMadrid;
+	private JRadioButton rdbtnCLM;
+	private JRadioButton rdbtnExtremadura;
+	private JRadioButton rdbtnValencia;
+	private JRadioButton rdbtnAndalucia;
+	private JRadioButton rdbtnMurcia;
+	private JRadioButton rdbtnMurcia_1;
+	private JRadioButton rdbtnBaleares;
+	private JRadioButton rdbtnCanarias;
+	private JRadioButton rdbtnCeuta;
 
 	/**
 	 * Launch the application.
@@ -70,6 +84,86 @@ public class Vista extends JFrame {
 		   contentPane.add(panelComunidades);
 		   panelComunidades.setLayout(null);
 		   
+		   JRadioButton rdbtnMelilla = new JRadioButton("MELILLA");
+		   rdbtnMelilla.setBackground(Color.PINK);
+		   rdbtnMelilla.setBounds(562, 502, 70, 15);
+		   panelComunidades.add(rdbtnMelilla);
+		   
+		   rdbtnCeuta = new JRadioButton("CEUTA");
+		   rdbtnCeuta.setBackground(Color.PINK);
+		   rdbtnCeuta.setBounds(502, 472, 70, 15);
+		   panelComunidades.add(rdbtnCeuta);
+		   
+		   rdbtnCanarias = new JRadioButton("");
+		   rdbtnCanarias.setBackground(Color.PINK);
+		   rdbtnCanarias.setBounds(765, 466, 21, 15);
+		   panelComunidades.add(rdbtnCanarias);
+		   
+		   rdbtnBaleares = new JRadioButton("");
+		   rdbtnBaleares.setBackground(Color.PINK);
+		   rdbtnBaleares.setBounds(804, 283, 21, 15);
+		   panelComunidades.add(rdbtnBaleares);
+		   
+		   rdbtnMurcia_1 = new JRadioButton("");
+		   rdbtnMurcia_1.setBackground(Color.PINK);
+		   rdbtnMurcia_1.setBounds(596, 160, 21, 21);
+		   panelComunidades.add(rdbtnMurcia_1);
+		   
+		   rdbtnMurcia = new JRadioButton("");
+		   rdbtnMurcia.setBackground(Color.PINK);
+		   rdbtnMurcia.setBounds(641, 364, 21, 21);
+		   panelComunidades.add(rdbtnMurcia);
+		   
+		   rdbtnAndalucia = new JRadioButton("");
+		   rdbtnAndalucia.setBackground(Color.PINK);
+		   rdbtnAndalucia.setBounds(539, 380, 21, 21);
+		   panelComunidades.add(rdbtnAndalucia);
+		   
+		   rdbtnValencia = new JRadioButton("");
+		   rdbtnValencia.setBackground(Color.PINK);
+		   rdbtnValencia.setBounds(673, 304, 21, 21);
+		   panelComunidades.add(rdbtnValencia);
+		   
+		   rdbtnExtremadura = new JRadioButton("");
+		   rdbtnExtremadura.setBackground(Color.PINK);
+		   rdbtnExtremadura.setBounds(474, 303, 21, 21);
+		   panelComunidades.add(rdbtnExtremadura);
+		   
+		   rdbtnCLM = new JRadioButton("");
+		   rdbtnCLM.setBackground(Color.PINK);
+		   rdbtnCLM.setBounds(596, 303, 21, 21);
+		   panelComunidades.add(rdbtnCLM);
+		   
+		   rdbtnMadrid = new JRadioButton("");
+		   rdbtnMadrid.setBackground(Color.PINK);
+		   rdbtnMadrid.setBounds(559, 248, 21, 21);
+		   panelComunidades.add(rdbtnMadrid);
+		   
+		   rdbtnCYL = new JRadioButton("");
+		   rdbtnCYL.setBackground(Color.PINK);
+		   rdbtnCYL.setBounds(508, 180, 21, 21);
+		   panelComunidades.add(rdbtnCYL);
+		   
+		   rdbtnCatalunya = new JRadioButton("");
+		   rdbtnCatalunya.setBackground(Color.PINK);
+		   rdbtnCatalunya.setBounds(752, 191, 21, 21);
+		   panelComunidades.add(rdbtnCatalunya);
+		   
+		   rdbtnNavarra_1 = new JRadioButton("");
+		   rdbtnNavarra_1.setBackground(Color.PINK);
+		   rdbtnNavarra_1.setBounds(673, 193, 21, 21);
+		   panelComunidades.add(rdbtnNavarra_1);
+		   
+		   rdbtnNavarra = new JRadioButton("");
+		   rdbtnNavarra.setBackground(Color.PINK);
+		   rdbtnNavarra.setBounds(629, 146, 21, 21);
+		   panelComunidades.add(rdbtnNavarra);
+		   
+		   rdbtnPaisVasco = new JRadioButton("");
+		   rdbtnPaisVasco.setBackground(Color.PINK);
+		   rdbtnPaisVasco.setBounds(596, 125, 21, 21);
+		   panelComunidades.add(rdbtnPaisVasco);
+		   
 		   JRadioButton rdbtnGalicia = new JRadioButton("");
 		   rdbtnGalicia.setBackground(Color.PINK);
 		   rdbtnGalicia.setBounds(397, 135, 28, 21);
@@ -82,19 +176,14 @@ public class Vista extends JFrame {
 		   
 		   rdbtnCantabria = new JRadioButton("");
 		   rdbtnCantabria.setBackground(Color.PINK);
-		   rdbtnCantabria.setBounds(539, 115, 28, 21);
+		   rdbtnCantabria.setBounds(539, 115, 21, 21);
 		   panelComunidades.add(rdbtnCantabria);
 		   
 		   lblEspana = new JLabel("");
 		   lblEspana.setHorizontalAlignment(SwingConstants.CENTER);
-		   lblEspana.setBounds(200, 10, 830, 621);
+		   lblEspana.setBounds(202, 10, 830, 621);
 		   panelComunidades.add(lblEspana);
 		   lblEspana.setIcon(new ImageIcon("src/Imagenes/espana.png"));
-		   
-		   rdbtnPaisVasco = new JRadioButton("");
-		   rdbtnPaisVasco.setBackground(Color.PINK);
-		   rdbtnPaisVasco.setBounds(604, 104, 28, 21);
-		   panelComunidades.add(rdbtnPaisVasco);
 		   
 		   
 		   
