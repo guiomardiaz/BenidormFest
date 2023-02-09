@@ -15,9 +15,11 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.print.attribute.AttributeSetUtilities;
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
+import javax.swing.JCheckBox;
 
 public class Vista extends JFrame {
 
@@ -73,6 +75,13 @@ public class Vista extends JFrame {
 		contentPane.add(panelInicioSesion);
 		panelInicioSesion.setLayout(null);
 		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Recuerdame en este diapositivo");
+		chckbxNewCheckBox.setForeground(new Color(255, 255, 255));
+		chckbxNewCheckBox.setBackground(new Color(0, 115, 170));
+		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chckbxNewCheckBox.setBounds(408, 271, 268, 21);
+		panelInicioSesion.add(chckbxNewCheckBox);
+		
 		lblLogin = new JLabel("LOGIN");
 		lblLogin.setForeground(new Color(255, 255, 255));
 		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
@@ -81,32 +90,35 @@ public class Vista extends JFrame {
 		panelInicioSesion.add(lblLogin);
 
 		JLabel lblNombre = new JLabel("Username");
-		lblNombre.setBounds(401, 177, 96, 23);
-		lblNombre.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNombre.setForeground(new Color(255, 255, 255));
+		lblNombre.setBounds(398, 177, 96, 23);
+		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		panelInicioSesion.add(lblNombre);
 
 		fieldNombre = new JTextField();
 		fieldNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		fieldNombre.setBounds(507, 181, 96, 19);
+		fieldNombre.setBounds(584, 179, 96, 23);
 		fieldNombre.setColumns(10);
 		fieldNombre.setToolTipText("Introduce tu nombre");
 		panelInicioSesion.add(fieldNombre);
 		
 
-		JLabel lblContrasea = new JLabel("Año de nacimiento");
-		lblContrasea.setBounds(304, 425, 183, 23);
-		lblContrasea.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel lblContrasea = new JLabel("Año nacimiento");
+		lblContrasea.setForeground(new Color(255, 255, 255));
+		lblContrasea.setBounds(355, 220, 183, 23);
+		lblContrasea.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		panelInicioSesion.add(lblContrasea);
 
-		continuar = new JButton("CONTINUAR");
-		continuar.setBounds(651, 380, 111, 21);
-		continuar.setFont(new Font("Tahoma", Font.BOLD, 10));
+		continuar = new JButton("INICIAR SESION");
+		continuar.setBackground(new Color(189, 219, 233));
+		continuar.setBounds(453, 331, 202, 33);
+		continuar.setFont(new Font("Tahoma", Font.BOLD, 16));
 		panelInicioSesion.add(continuar);
 
 		comboBox = new JComboBox();
-		comboBox.setBounds(497, 430, 96, 18);
+		comboBox.setBounds(584, 221, 96, 23);
 		panelInicioSesion.add(comboBox);
 
 		JLabel lblErrorLogin = new JLabel("");
@@ -114,17 +126,11 @@ public class Vista extends JFrame {
 		lblErrorLogin.setForeground(new Color(128, 64, 64));
 		panelInicioSesion.add(lblErrorLogin);
 
-		JLabel lblFondoIS = new JLabel("");
-		lblFondoIS.setBounds(294, 363, 500, 110);
-		lblFondoIS.setOpaque(true);
-		lblFondoIS.setBorder(BorderFactory.createLineBorder(Color.black));
-		lblFondoIS.setBackground(new Color(251, 254, 231));
-		panelInicioSesion.add(lblFondoIS);
-
 		lblFondo = new JLabel("");
 		lblFondo.setBounds(0, 0, 1128, 626);
 		panelInicioSesion.add(lblFondo);
 		lblFondo.setIcon(new ImageIcon("src/Imagenes/fondo.jpg"));
+		
 
 		panelComunidades = new JPanel();
 		panelComunidades.setBounds(0, 0, 1138, 636);
