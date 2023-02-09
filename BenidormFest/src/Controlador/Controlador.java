@@ -40,10 +40,12 @@ public class Controlador implements ActionListener {
 	public Controlador(Vista vista) throws IOException, ClassNotFoundException, SQLException,
 			UnsupportedAudioFileException, LineUnavailableException {
 		this.vista = vista;
+		vista.continuar.addActionListener(this);
 		//vista.panelInicioSesion.setVisible(false);
 		vista.btnEmpezar.addActionListener(this);
 		llenarComboBox();
-		
+		vista.panelInicioSesion.setVisible(false);
+		vista.panelComunidades.setVisible(false);
 		
 		conexion = crearConexion();
 
@@ -113,85 +115,15 @@ public class Controlador implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == vista.btnEmpezar) {
-			// Generacion andaluces
-			for (int i = 0; i < votantesAndalucia; i++) {
-				Ciudadano andaluz = new Ciudadano("Andalucia", habitantesAndalucia, artistas);
-				andaluz.start();
-			}
-			for (int i = 0; i < votantesAragon; i++) {
-				Ciudadano arag = new Ciudadano("Aragon", habitantesAragon, artistas);
-				arag.start();
-			}
-			for (int i = 0; i < votantesAsturias; i++) {
-				Ciudadano ast = new Ciudadano("Asturias", habitantesAsturias, artistas);
-				ast.start();
-			}
-			for (int i = 0; i < votantesBaleares; i++) {
-				Ciudadano bal = new Ciudadano("Baleares", habitantesBaleares, artistas);
-				bal.start();
-			}
-			for (int i = 0; i < votantesCanarias; i++) {
-				Ciudadano can = new Ciudadano("Canarias", habitantesCanarias, artistas);
-				can.start();
-			}
-			for (int i = 0; i < votantesCantabria; i++) {
-				Ciudadano cant = new Ciudadano("Cantabria", habitantesCantabria, artistas);
-				cant.start();
-			}
-			for (int i = 0; i < votantesCatalunia; i++) {
-				Ciudadano cat = new Ciudadano("Cataluña", habitantesCatalunia, artistas);
-				cat.start();
-			}
-			for (int i = 0; i < votantesCeuta; i++) {
-				Ciudadano ceu = new Ciudadano("Ceuta", habitantesCeuta, artistas);
-				ceu.start();
-			}
-			for (int i = 0; i < votantesCLM; i++) {
-				Ciudadano clm = new Ciudadano("CLM", habitantesCLM, artistas);
-				clm.start();
-			}
-			for (int i = 0; i < votantesCYL; i++) {
-				Ciudadano cyl = new Ciudadano("CYL", habitantesCYL, artistas);
-				cyl.start();
-			}
-			for (int i = 0; i < votantesExtremadura; i++) {
-				Ciudadano ex = new Ciudadano("Extremadura", habitantesExtremadura, artistas);
-				ex.start();
-			}
-			for (int i = 0; i < votantesGalicia; i++) {
-				Ciudadano gal = new Ciudadano("Galicia", habitantesGalicia, artistas);
-				gal.start();
-			}
-			for (int i = 0; i < votantesMadrid; i++) {
-				Ciudadano mad = new Ciudadano("Madrid", habitantesMadrid, artistas);
-				mad.start();
-			}
-			for (int i = 0; i < votantesMelilla; i++) {
-				Ciudadano mel = new Ciudadano("Melilla", habitantesMelilla, artistas);
-				mel.start();
-			}
-			for (int i = 0; i < votantesMurcia; i++) {
-				Ciudadano mur = new Ciudadano("Murcia", habitantesMurcia, artistas);
-				mur.start();
-			}
-			for (int i = 0; i < votantesNavarra; i++) {
-				Ciudadano nav = new Ciudadano("Navarra", habitantesNavarra, artistas);
-				nav.start();
-			}
-			for (int i = 0; i < votantesRioja; i++) {
-				Ciudadano rio = new Ciudadano("Rioja", habitantesRioja, artistas);
-				rio.start();
-			}
-			for (int i = 0; i < votantesValencia; i++) {
-				Ciudadano val = new Ciudadano("Valencia", habitantesValencia, artistas);
-				val.start();
-			}
-			for (int i = 0; i < votantesVascos; i++) {
-				Ciudadano vas = new Ciudadano("Pais Vasco",habitantesVascos, artistas);
-				vas.start();
-			}
+			vista.panelInicioSesion.setVisible(true);
+			vista.PanelInicio.setVisible(false);
 
 		} // end btn empezar
+		
+		if (e.getSource() == vista.continuar) {
+			vista.panelComunidades.setVisible(true);
+			vista.panelInicioSesion.setVisible(false);
+		}
 	}// end action listener
 
 	private int contadorTotal(int[] habitantes) {
@@ -272,6 +204,86 @@ public class Controlador implements ActionListener {
 		for(int i=limite; i>1930;i--) {
 			vista.comboBox.addItem(String.valueOf(i));
 		}
+	}
+	
+	public void empezar() {
+		// Generacion andaluces
+					for (int i = 0; i < votantesAndalucia; i++) {
+						Ciudadano andaluz = new Ciudadano("Andalucia", habitantesAndalucia, artistas);
+						andaluz.start();
+					}
+					for (int i = 0; i < votantesAragon; i++) {
+						Ciudadano arag = new Ciudadano("Aragon", habitantesAragon, artistas);
+						arag.start();
+					}
+					for (int i = 0; i < votantesAsturias; i++) {
+						Ciudadano ast = new Ciudadano("Asturias", habitantesAsturias, artistas);
+						ast.start();
+					}
+					for (int i = 0; i < votantesBaleares; i++) {
+						Ciudadano bal = new Ciudadano("Baleares", habitantesBaleares, artistas);
+						bal.start();
+					}
+					for (int i = 0; i < votantesCanarias; i++) {
+						Ciudadano can = new Ciudadano("Canarias", habitantesCanarias, artistas);
+						can.start();
+					}
+					for (int i = 0; i < votantesCantabria; i++) {
+						Ciudadano cant = new Ciudadano("Cantabria", habitantesCantabria, artistas);
+						cant.start();
+					}
+					for (int i = 0; i < votantesCatalunia; i++) {
+						Ciudadano cat = new Ciudadano("Cataluña", habitantesCatalunia, artistas);
+						cat.start();
+					}
+					for (int i = 0; i < votantesCeuta; i++) {
+						Ciudadano ceu = new Ciudadano("Ceuta", habitantesCeuta, artistas);
+						ceu.start();
+					}
+					for (int i = 0; i < votantesCLM; i++) {
+						Ciudadano clm = new Ciudadano("CLM", habitantesCLM, artistas);
+						clm.start();
+					}
+					for (int i = 0; i < votantesCYL; i++) {
+						Ciudadano cyl = new Ciudadano("CYL", habitantesCYL, artistas);
+						cyl.start();
+					}
+					for (int i = 0; i < votantesExtremadura; i++) {
+						Ciudadano ex = new Ciudadano("Extremadura", habitantesExtremadura, artistas);
+						ex.start();
+					}
+					for (int i = 0; i < votantesGalicia; i++) {
+						Ciudadano gal = new Ciudadano("Galicia", habitantesGalicia, artistas);
+						gal.start();
+					}
+					for (int i = 0; i < votantesMadrid; i++) {
+						Ciudadano mad = new Ciudadano("Madrid", habitantesMadrid, artistas);
+						mad.start();
+					}
+					for (int i = 0; i < votantesMelilla; i++) {
+						Ciudadano mel = new Ciudadano("Melilla", habitantesMelilla, artistas);
+						mel.start();
+					}
+					for (int i = 0; i < votantesMurcia; i++) {
+						Ciudadano mur = new Ciudadano("Murcia", habitantesMurcia, artistas);
+						mur.start();
+					}
+					for (int i = 0; i < votantesNavarra; i++) {
+						Ciudadano nav = new Ciudadano("Navarra", habitantesNavarra, artistas);
+						nav.start();
+					}
+					for (int i = 0; i < votantesRioja; i++) {
+						Ciudadano rio = new Ciudadano("Rioja", habitantesRioja, artistas);
+						rio.start();
+					}
+					for (int i = 0; i < votantesValencia; i++) {
+						Ciudadano val = new Ciudadano("Valencia", habitantesValencia, artistas);
+						val.start();
+					}
+					for (int i = 0; i < votantesVascos; i++) {
+						Ciudadano vas = new Ciudadano("Pais Vasco",habitantesVascos, artistas);
+						vas.start();
+					}
 	}
 
 }// end controlador
