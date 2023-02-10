@@ -9,10 +9,22 @@ public class Artista {
 	votosGallegos, votosMadrileños, votosMurcianos, votosNavarra, votosVascos, votosRioja,
 	votosCeuta, votosMelilla;
 	
-	public Artista(String nombre) {
+	public Artista(String nombre, String urlFoto) {
 		super();
 		this.nombre = nombre;
+		this.urlFoto = urlFoto;
 	}
+
+	
+	public String getUrlFoto() {
+		return urlFoto;
+	}
+
+
+	public void setUrlFoto(String urlFoto) {
+		this.urlFoto = urlFoto;
+	}
+
 
 	public String getNombre() {
 		return nombre;

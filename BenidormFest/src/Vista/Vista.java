@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 import Controlador.Controlador;
@@ -22,6 +23,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
+import javax.swing.JProgressBar;
 
 public class Vista extends JFrame {
 
@@ -29,8 +31,7 @@ public class Vista extends JFrame {
 	public JPanel PanelInicio, panelInicioSesion, panelComunidades, panelArtistas, panelProceso, panelResultados;
 	public JButton btnEmpezar, continuar, btnVotarJoel, btnVotarVictoria, btnVotarThiago, btnVotarSarah, btnVotarElton,
 			btnVotarAmie, btnVotarNahid, btnVotarMarc, btnVotarAlba, btnVotarJulio;
-	public JLabel lblFoto, lblTimer;
-	public JLabel lblBienvenido;
+	public JLabel lblTimer;
 	public JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	public JTextField fieldNombre;
@@ -46,9 +47,20 @@ public class Vista extends JFrame {
 	public JLabel lblLoading;
 	public Timer timer;
 	private JLabel lblNewLabel_2;
-	public JLabel foto1;
-	public JLabel nombre1;
-	public JLabel primerPuesto;
+	public JLabel foto1, nombre1, primerPuesto, nombre2, foto2, tercerPuesto, nombre3, foto3, cuartoPuesto, nombre4,
+			foto4, nombre5, quintoPuesto, foto5, segundoPuesto, sextoPuesto, nombre6, foto6, septimoPuesto, foto7,
+			nombre7, octavoPuesto, nombre8, foto8, novenoPuesto, nombre9, foto9, nombre10, decimoPuesto, foto10;
+
+	private JLabel lblNewLabel_3;
+	private JLabel lblBorde2;
+	private JLabel lblBorde3;
+	private JLabel lblNewLabel_4;
+	private JLabel lblFondoFinal;
+	private JButton btnComunidad;
+	private JButton btnRangoEdad;
+	private JLabel lblNewLabel_5;
+	public JProgressBar progressBar;
+
 	/**
 	 * Launch the application.
 	 */
@@ -70,6 +82,7 @@ public class Vista extends JFrame {
 	 * Create the frame.
 	 */
 	public Vista() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1152, 673);
 		contentPane = new JPanel();
@@ -78,42 +91,34 @@ public class Vista extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		 		
-		 				 panelResultados = new JPanel();
-		 				 panelResultados.setBounds(0, 0, 1138, 636);
-		 				 contentPane.add(panelResultados);
-		 				 panelResultados.setLayout(null);
-		 				 
-		 				 lblNewLabel_2 = new JLabel("RESULTADOS DE LAS VOTACIONES");
-		 				 lblNewLabel_2.setBounds(30, 47, 234, 54);
-		 				 panelResultados.add(lblNewLabel_2);
-		 				 
-		 				 foto1 = new JLabel("New label");
-		 				 foto1.setBounds(85, 209, 133, 116);
-		 				 panelResultados.add(foto1);
-		 				 
-		 				 nombre1 = new JLabel("New label");
-		 				 nombre1.setBounds(133, 169, 85, 30);
-		 				 panelResultados.add(nombre1);
-		 				 
-		 				 primerPuesto = new JLabel("1");
-		 				 primerPuesto.setBounds(78, 158, 45, 41);
-		 				 panelResultados.add(primerPuesto);
-		 
-		 		panelProceso = new JPanel();
-		 		panelProceso.setBackground(new Color(22, 20, 28));
-		 		panelProceso.setBounds(0, 0, 1138, 636);
-		 		contentPane.add(panelProceso);
-		 		panelProceso.setLayout(null);
-		 		
-		 				lblLoading = new JLabel("");
-		 				lblLoading.setBounds(307, 68, 532, 470);
-		 				panelProceso.add(lblLoading);
-		 				lblLoading.setIcon(new ImageIcon("src/Imagenes/loading2.gif"));
-		 				
-		 				 lblTimer = new JLabel("5");
-		 				lblTimer.setBounds(26, 21, 45, 13);
-		 				panelProceso.add(lblTimer);
+		
+				panelProceso = new JPanel();
+				panelProceso.setBackground(new Color(22, 20, 28));
+				panelProceso.setBounds(0, 0, 1138, 636);
+				contentPane.add(panelProceso);
+				panelProceso.setLayout(null);
+				
+						lblLoading = new JLabel("");
+						lblLoading.setBounds(355, 104, 532, 470);
+						panelProceso.add(lblLoading);
+						lblLoading.setIcon(new ImageIcon("src/Imagenes/loading2.gif"));
+						
+								lblTimer = new JLabel("5");
+								lblTimer.setFont(new Font("Tahoma", Font.PLAIN, 25));
+								lblTimer.setForeground(new Color(255, 255, 255));
+								lblTimer.setBounds(760, 24, 189, 49);
+								panelProceso.add(lblTimer);
+								
+										lblNewLabel_4 = new JLabel("Procesando Las Votaciones:");
+										lblNewLabel_4.setForeground(new Color(255, 255, 255));
+										lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 25));
+										lblNewLabel_4.setBounds(373, 24, 344, 49);
+										panelProceso.add(lblNewLabel_4);
+										
+										JProgressBar progressBar = new JProgressBar();
+										progressBar.setValue(20);
+										progressBar.setBounds(499, 584, 146, 21);
+										panelProceso.add(progressBar);
 
 		PanelInicio = new JPanel();
 		PanelInicio.setBackground(new Color(0, 0, 0));
@@ -121,139 +126,313 @@ public class Vista extends JFrame {
 		contentPane.add(PanelInicio);
 		PanelInicio.setLayout(null);
 
-		btnEmpezar = new JButton("EMPEZAR");
+		lblBorde3 = new JLabel("");
+		lblBorde3.setBounds(255, 43, 562, 106);
+		Border border4= BorderFactory.createLineBorder(Color.WHITE, 3);
+		lblBorde3.setBorder(border4);
+		PanelInicio.add(lblBorde3);
+
+		btnEmpezar = new JButton("ENTRAR");
 		btnEmpezar.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnEmpezar.setBounds(430, 505, 214, 98);
+		btnEmpezar.setBounds(431, 520, 214, 64);
 		PanelInicio.add(btnEmpezar);
-
-		lblFoto = new JLabel("");
-		lblFoto.setBounds(399, 163, 264, 120);
-		PanelInicio.add(lblFoto);
-		lblFoto.setIcon(new ImageIcon("src/Imagenes/benidorm.png"));
-
-		lblBienvenido = new JLabel("Bienvenido a las votaciones de Benidorm Fest");
-		lblBienvenido.setForeground(Color.WHITE);
-		lblBienvenido.setFont(new Font("Tahoma", Font.PLAIN, 32));
-		lblBienvenido.setBounds(217, 47, 666, 74);
-		PanelInicio.add(lblBienvenido);
 
 		lblNewLabel = new JLabel("Aquí podrás ver en tiempo real los votos realizados");
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel.setBounds(285, 341, 531, 37);
+		lblNewLabel.setBounds(285, 43, 531, 37);
 		PanelInicio.add(lblNewLabel);
 
-		lblNewLabel_1 = new JLabel("por los votantes de cada Comunidad");
+		lblNewLabel_1 = new JLabel("por los votantes de cada Comunidad y votar tú");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBounds(365, 388, 397, 26);
+		lblNewLabel_1.setBounds(310, 78, 467, 26);
 		PanelInicio.add(lblNewLabel_1);
 
-		panelArtistas = new JPanel();
-		panelArtistas.setBounds(0, 0, 1138, 626);
-		contentPane.add(panelArtistas);
-		panelArtistas.setLayout(null);
+		JLabel lblNewLabel_1_1 = new JLabel("mismo a quien tú quieras");
+		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_1.setForeground(Color.WHITE);
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_1_1.setBounds(292, 107, 467, 26);
+		PanelInicio.add(lblNewLabel_1_1);
 
-		JLabel lblFotoJoel = new JLabel("New label");
-		lblFotoJoel.setBounds(83, 53, 90, 103);
-		panelArtistas.add(lblFotoJoel);
-		lblFotoJoel.setIcon(new ImageIcon("src/Imagenes/joel.png"));
+		JLabel lblFondoInicio = new JLabel("New label");
+		lblFondoInicio.setBounds(0, 0, 1138, 636);
+		lblFondoInicio.setIcon(new ImageIcon("src/Imagenes/ben.jpg"));
+		PanelInicio.add(lblFondoInicio);
 
-		JLabel lblFotoVictoria = new JLabel("New label");
-		lblFotoVictoria.setBounds(266, 53, 90, 103);
-		panelArtistas.add(lblFotoVictoria);
-		lblFotoVictoria.setIcon(new ImageIcon("src/Imagenes/victoria.png"));
+		panelInicioSesion = new JPanel();
+		panelInicioSesion.setBounds(0, 0, 1138, 636);
+		contentPane.add(panelInicioSesion);
+		panelInicioSesion.setLayout(null);
 
-		JLabel lblFotoThiago = new JLabel("New label");
-		lblFotoThiago.setBounds(460, 53, 90, 103);
-		panelArtistas.add(lblFotoThiago);
-		lblFotoThiago.setIcon(new ImageIcon("src/Imagenes/thiago.png"));
+		JLabel lblBorde = new JLabel("");
+		lblBorde.setBounds(309, 57, 491, 471);
+		Border border5= BorderFactory.createLineBorder(Color.WHITE, 3);
+		lblBorde.setBorder(border5);
+		panelInicioSesion.add(lblBorde);
 
-		JLabel lblFotoSarah = new JLabel("New label");
-		lblFotoSarah.setBounds(683, 53, 90, 103);
-		panelArtistas.add(lblFotoSarah);
-		lblFotoSarah.setIcon(new ImageIcon("src/Imagenes/sarah.png"));
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Recuerdame en este diapositivo");
+		chckbxNewCheckBox.setForeground(new Color(255, 255, 255));
+		chckbxNewCheckBox.setBackground(new Color(0, 115, 170));
+		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chckbxNewCheckBox.setBounds(408, 313, 286, 23);
+		panelInicioSesion.add(chckbxNewCheckBox);
 
-		JLabel lblFotoElton = new JLabel("New label");
-		lblFotoElton.setBounds(890, 53, 90, 103);
-		panelArtistas.add(lblFotoElton);
-		lblFotoElton.setIcon(new ImageIcon("src/Imagenes/elton.png"));
+		lblLogin = new JLabel("LOGIN");
+		lblLogin.setForeground(new Color(255, 255, 255));
+		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		lblLogin.setBounds(488, 103, 136, 40);
+		panelInicioSesion.add(lblLogin);
 
-		btnVotarJoel = new JButton("VOTAR");
-		btnVotarJoel.setBounds(83, 210, 85, 21);
-		panelArtistas.add(btnVotarJoel);
+		JLabel lblNombre = new JLabel("Username");
+		lblNombre.setForeground(new Color(255, 255, 255));
+		lblNombre.setBounds(398, 213, 96, 31);
+		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		panelInicioSesion.add(lblNombre);
 
-		btnVotarVictoria = new JButton("VOTAR");
-		btnVotarVictoria.setBounds(271, 210, 85, 21);
-		panelArtistas.add(btnVotarVictoria);
+		fieldNombre = new JTextField();
+		fieldNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		fieldNombre.setBounds(584, 213, 145, 31);
+		fieldNombre.setColumns(10);
+		fieldNombre.setToolTipText("Introduce tu nombre");
+		panelInicioSesion.add(fieldNombre);
 
-		btnVotarThiago = new JButton("VOTAR");
-		btnVotarThiago.setBounds(465, 210, 85, 21);
-		panelArtistas.add(btnVotarThiago);
+		JLabel lblContrasea = new JLabel("Año nacimiento");
+		lblContrasea.setForeground(new Color(255, 255, 255));
+		lblContrasea.setBounds(355, 254, 183, 31);
+		lblContrasea.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		panelInicioSesion.add(lblContrasea);
 
-		btnVotarSarah = new JButton("VOTAR");
-		btnVotarSarah.setBounds(688, 210, 85, 21);
-		panelArtistas.add(btnVotarSarah);
+		continuar = new JButton("INICIAR SESION");
+		continuar.setBackground(new Color(189, 219, 233));
+		continuar.setBounds(453, 432, 202, 46);
+		continuar.setFont(new Font("Tahoma", Font.BOLD, 16));
+		panelInicioSesion.add(continuar);
 
-		btnVotarElton = new JButton("VOTAR");
-		btnVotarElton.setBounds(895, 210, 85, 21);
-		panelArtistas.add(btnVotarElton);
+		comboBox = new JComboBox();
+		comboBox.setBounds(584, 254, 145, 31);
+		panelInicioSesion.add(comboBox);
 
-		JLabel lblFotoAmie = new JLabel("New label");
-		lblFotoAmie.setBounds(83, 325, 90, 103);
-		panelArtistas.add(lblFotoAmie);
-		lblFotoAmie.setIcon(new ImageIcon("src/Imagenes/amie.png"));
+		JLabel lblErrorLogin = new JLabel("");
+		lblErrorLogin.setBounds(603, 425, 191, 23);
+		lblErrorLogin.setForeground(new Color(128, 64, 64));
+		panelInicioSesion.add(lblErrorLogin);
 
-		JLabel lblFotoNahid = new JLabel("New label");
-		lblFotoNahid.setBounds(266, 325, 90, 103);
-		panelArtistas.add(lblFotoNahid);
-		lblFotoNahid.setIcon(new ImageIcon("src/Imagenes/nahid.png"));
+		lblFondo = new JLabel("");
+		lblFondo.setBounds(0, 0, 1128, 626);
+		panelInicioSesion.add(lblFondo);
+		lblFondo.setIcon(new ImageIcon("src/Imagenes/fondo.jpg"));
 
-		JLabel lblFotoMarc = new JLabel("New label");
-		lblFotoMarc.setBounds(460, 325, 90, 103);
-		panelArtistas.add(lblFotoMarc);
-		lblFotoMarc.setIcon(new ImageIcon("src/Imagenes/marc.png"));
+		panelResultados = new JPanel();
+		panelResultados.setBounds(0, 0, 1138, 636);
+		contentPane.add(panelResultados);
+		panelResultados.setLayout(null);
 
-		JLabel lblFotoAlba = new JLabel("New label");
-		lblFotoAlba.setBounds(683, 325, 90, 103);
-		panelArtistas.add(lblFotoAlba);
-		lblFotoAlba.setIcon(new ImageIcon("src/Imagenes/alba.png"));
+		lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5.setBounds(48, 140, 1035, 455);
+		Border border3 = BorderFactory.createLineBorder(Color.WHITE, 2);
+		lblNewLabel_5.setBorder(border3);
+		panelResultados.add(lblNewLabel_5);
 
-		JLabel lblFotoJulio = new JLabel("New label");
-		lblFotoJulio.setBounds(890, 325, 90, 103);
-		panelArtistas.add(lblFotoJulio);
-		lblFotoJulio.setIcon(new ImageIcon("src/Imagenes/julio.png"));
+		btnRangoEdad = new JButton("Rango Edad");
+		btnRangoEdad.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnRangoEdad.setBounds(652, 85, 121, 34);
+		panelResultados.add(btnRangoEdad);
 
-		btnVotarAmie = new JButton("VOTAR");
-		btnVotarAmie.setBounds(83, 507, 85, 21);
-		panelArtistas.add(btnVotarAmie);
+		btnComunidad = new JButton("Comunidad");
+		btnComunidad.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnComunidad.setBounds(496, 85, 121, 34);
+		panelResultados.add(btnComunidad);
 
-		btnVotarNahid = new JButton("VOTAR");
-		btnVotarNahid.setBounds(266, 507, 85, 21);
-		panelArtistas.add(btnVotarNahid);
+		JButton btnGenerales = new JButton("Generales");
+		btnGenerales.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnGenerales.setBounds(338, 85, 115, 34);
+		panelResultados.add(btnGenerales);
 
-		btnVotarMarc = new JButton("VOTAR");
-		btnVotarMarc.setBounds(460, 507, 85, 21);
-		panelArtistas.add(btnVotarMarc);
+		lblNewLabel_2 = new JLabel("RESULTADOS DE LAS VOTACIONES");
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setFont(new Font("Yu Gothic UI", Font.PLAIN, 28));
+		lblNewLabel_2.setBounds(172, 21, 773, 54);
+		panelResultados.add(lblNewLabel_2);
 
-		btnVotarAlba = new JButton("VOTAR");
-		btnVotarAlba.setBounds(683, 507, 85, 21);
-		panelArtistas.add(btnVotarAlba);
+		foto1 = new JLabel("");
+		foto1.setBounds(85, 209, 133, 116);
+		panelResultados.add(foto1);
 
-		btnVotarJulio = new JButton("VOTAR");
-		btnVotarJulio.setBounds(890, 507, 85, 21);
-		panelArtistas.add(btnVotarJulio);
+		nombre1 = new JLabel("");
+		nombre1.setForeground(new Color(255, 255, 255));
+		nombre1.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		nombre1.setBounds(133, 158, 85, 41);
+		panelResultados.add(nombre1);
 
-		lblFondo3 = new JLabel("");
-		lblFondo3.setForeground(new Color(255, 255, 255));
-		lblFondo3.setBounds(0, 0, 1138, 638);
-		lblFondo3.setIcon(new ImageIcon("src/Imagenes/fondo2.jpg"));
-		panelArtistas.add(lblFondo3);
+		primerPuesto = new JLabel("");
+		primerPuesto.setBounds(78, 158, 45, 41);
+		primerPuesto.setIcon(new ImageIcon("src/Imagenes/1.png"));
+		panelResultados.add(primerPuesto);
+
+		segundoPuesto = new JLabel("");
+		segundoPuesto.setBounds(279, 158, 45, 41);
+		primerPuesto.setIcon(new ImageIcon("src/Imagenes/2.png"));
+		panelResultados.add(segundoPuesto);
+
+		nombre2 = new JLabel("");
+		nombre2.setForeground(new Color(255, 255, 255));
+		nombre2.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		nombre2.setBounds(338, 158, 85, 41);
+		panelResultados.add(nombre2);
+
+		foto2 = new JLabel("");
+		foto2.setBounds(290, 209, 133, 116);
+		panelResultados.add(foto2);
+
+		tercerPuesto = new JLabel("");
+		tercerPuesto.setBounds(465, 158, 45, 41);
+		primerPuesto.setIcon(new ImageIcon("src/Imagenes/3.png"));
+		panelResultados.add(tercerPuesto);
+
+		nombre3 = new JLabel("");
+		nombre3.setForeground(new Color(255, 255, 255));
+		nombre3.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		nombre3.setBounds(526, 158, 85, 41);
+		panelResultados.add(nombre3);
+
+		foto3 = new JLabel("");
+		foto3.setBounds(478, 209, 133, 116);
+		panelResultados.add(foto3);
+
+		cuartoPuesto = new JLabel("");
+		cuartoPuesto.setBounds(682, 158, 45, 41);
+		primerPuesto.setIcon(new ImageIcon("src/Imagenes/4.png"));
+		panelResultados.add(cuartoPuesto);
+
+		nombre4 = new JLabel("");
+		nombre4.setForeground(new Color(255, 255, 255));
+		nombre4.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		nombre4.setBounds(730, 158, 85, 41);
+		panelResultados.add(nombre4);
+
+		foto4 = new JLabel("");
+		foto4.setBounds(682, 209, 133, 116);
+		panelResultados.add(foto4);
+
+		nombre5 = new JLabel("");
+		nombre5.setForeground(new Color(255, 255, 255));
+		nombre5.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		nombre5.setBounds(948, 158, 85, 41);
+		panelResultados.add(nombre5);
+
+		quintoPuesto = new JLabel("");
+		quintoPuesto.setBounds(900, 158, 45, 41);
+		primerPuesto.setIcon(new ImageIcon("src/Imagenes/5.png"));
+		panelResultados.add(quintoPuesto);
+
+		foto5 = new JLabel("");
+		foto5.setBounds(900, 209, 133, 116);
+		panelResultados.add(foto5);
+
+		sextoPuesto = new JLabel("");
+		sextoPuesto.setBounds(85, 388, 45, 41);
+		primerPuesto.setIcon(new ImageIcon("src/Imagenes/6.png"));
+		panelResultados.add(sextoPuesto);
+
+		nombre6 = new JLabel("");
+		nombre6.setForeground(new Color(255, 255, 255));
+		nombre6.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		nombre6.setBounds(133, 388, 85, 41);
+		panelResultados.add(nombre6);
+
+		foto6 = new JLabel("");
+		foto6.setBounds(85, 439, 133, 116);
+		panelResultados.add(foto6);
+
+		septimoPuesto = new JLabel("");
+		septimoPuesto.setBounds(290, 388, 45, 41);
+		primerPuesto.setIcon(new ImageIcon("src/Imagenes/7.png"));
+		panelResultados.add(septimoPuesto);
+
+		foto7 = new JLabel("");
+		foto7.setBounds(290, 439, 133, 116);
+		panelResultados.add(foto7);
+
+		nombre7 = new JLabel("");
+		nombre7.setForeground(new Color(255, 255, 255));
+		nombre7.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		nombre7.setBounds(338, 388, 85, 41);
+		panelResultados.add(nombre7);
+
+		octavoPuesto = new JLabel("");
+		octavoPuesto.setBounds(478, 388, 45, 41);
+		primerPuesto.setIcon(new ImageIcon("src/Imagenes/8.png"));
+		panelResultados.add(octavoPuesto);
+
+		nombre8 = new JLabel("");
+		nombre8.setForeground(new Color(255, 255, 255));
+		nombre8.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		nombre8.setBounds(526, 388, 85, 41);
+		panelResultados.add(nombre8);
+
+		foto8 = new JLabel("");
+		foto8.setBounds(478, 439, 133, 116);
+		panelResultados.add(foto8);
+
+		novenoPuesto = new JLabel("");
+		novenoPuesto.setBounds(682, 388, 45, 41);
+		primerPuesto.setIcon(new ImageIcon("src/Imagenes/9.png"));
+		panelResultados.add(novenoPuesto);
+
+		nombre9 = new JLabel("");
+		nombre9.setForeground(new Color(255, 255, 255));
+		nombre9.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		nombre9.setBounds(730, 388, 85, 41);
+		panelResultados.add(nombre9);
+
+		foto9 = new JLabel("");
+		foto9.setBounds(682, 439, 133, 116);
+		panelResultados.add(foto9);
+
+		nombre10 = new JLabel("");
+		nombre10.setForeground(new Color(255, 255, 255));
+		nombre10.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		nombre10.setBounds(948, 388, 85, 41);
+		panelResultados.add(nombre10);
+
+		decimoPuesto = new JLabel("");
+		decimoPuesto.setBounds(900, 388, 45, 41);
+		primerPuesto.setIcon(new ImageIcon("src/Imagenes/10.png"));
+		panelResultados.add(decimoPuesto);
+
+		foto10 = new JLabel("");
+		foto10.setBounds(900, 439, 133, 116);
+		panelResultados.add(foto10);
+
+		lblFondoFinal = new JLabel("");
+		lblFondoFinal.setBounds(0, 0, 1138, 636);
+		lblFondoFinal.setIcon(new ImageIcon("src/Imagenes/fondo2.jpg"));
+		panelResultados.add(lblFondoFinal);
+		Border border2 = BorderFactory.createLineBorder(Color.WHITE, 2);
 
 		panelComunidades = new JPanel();
 		panelComunidades.setBounds(0, 0, 1138, 636);
 		contentPane.add(panelComunidades);
 		panelComunidades.setLayout(null);
+
+		lblBorde2 = new JLabel("");
+		Border border = BorderFactory.createLineBorder(Color.WHITE, 2);
+		lblBorde2.setBorder(border);
+		lblBorde2.setBounds(209, 24, 768, 570);
+
+		panelComunidades.add(lblBorde2);
+
+		lblNewLabel_3 = new JLabel("Introduce Tu Comunidad Autónoma A Traves De Los Botones");
+		lblNewLabel_3.setForeground(new Color(255, 255, 255));
+		lblNewLabel_3.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 20));
+		lblNewLabel_3.setBounds(317, 30, 586, 27);
+		panelComunidades.add(lblNewLabel_3);
 
 		rdbtnMelilla = new JRadioButton("MELILLA");
 		rdbtnMelilla.setBackground(Color.PINK);
@@ -361,66 +540,107 @@ public class Vista extends JFrame {
 		lblFondo2.setIcon(new ImageIcon("src/Imagenes/fondo2.jpg"));
 		panelComunidades.add(lblFondo2);
 
-		panelInicioSesion = new JPanel();
-		panelInicioSesion.setBounds(0, 0, 1138, 636);
-		contentPane.add(panelInicioSesion);
-		panelInicioSesion.setLayout(null);
+		panelArtistas = new JPanel();
+		panelArtistas.setBounds(0, 0, 1138, 626);
+		contentPane.add(panelArtistas);
+		panelArtistas.setLayout(null);
 
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Recuerdame en este diapositivo");
-		chckbxNewCheckBox.setForeground(new Color(255, 255, 255));
-		chckbxNewCheckBox.setBackground(new Color(0, 115, 170));
-		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxNewCheckBox.setBounds(408, 271, 268, 21);
-		panelInicioSesion.add(chckbxNewCheckBox);
+		JLabel lblFotoJoel = new JLabel("New label");
+		lblFotoJoel.setBounds(83, 53, 90, 103);
+		panelArtistas.add(lblFotoJoel);
+		lblFotoJoel.setIcon(new ImageIcon("src/Imagenes/joel.png"));
 
-		lblLogin = new JLabel("LOGIN");
-		lblLogin.setForeground(new Color(255, 255, 255));
-		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 23));
-		lblLogin.setBounds(514, 120, 79, 23);
-		panelInicioSesion.add(lblLogin);
+		JLabel lblFotoVictoria = new JLabel("New label");
+		lblFotoVictoria.setBounds(266, 53, 90, 103);
+		panelArtistas.add(lblFotoVictoria);
+		lblFotoVictoria.setIcon(new ImageIcon("src/Imagenes/victoria.png"));
 
-		JLabel lblNombre = new JLabel("Username");
-		lblNombre.setForeground(new Color(255, 255, 255));
-		lblNombre.setBounds(398, 177, 96, 23);
-		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		panelInicioSesion.add(lblNombre);
+		JLabel lblFotoThiago = new JLabel("New label");
+		lblFotoThiago.setBounds(460, 53, 90, 103);
+		panelArtistas.add(lblFotoThiago);
+		lblFotoThiago.setIcon(new ImageIcon("src/Imagenes/thiago.png"));
 
-		fieldNombre = new JTextField();
-		fieldNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		fieldNombre.setBounds(584, 179, 96, 23);
-		fieldNombre.setColumns(10);
-		fieldNombre.setToolTipText("Introduce tu nombre");
-		panelInicioSesion.add(fieldNombre);
+		JLabel lblFotoSarah = new JLabel("New label");
+		lblFotoSarah.setBounds(683, 53, 90, 103);
+		panelArtistas.add(lblFotoSarah);
+		lblFotoSarah.setIcon(new ImageIcon("src/Imagenes/sarah.png"));
 
-		JLabel lblContrasea = new JLabel("Año nacimiento");
-		lblContrasea.setForeground(new Color(255, 255, 255));
-		lblContrasea.setBounds(355, 220, 183, 23);
-		lblContrasea.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		panelInicioSesion.add(lblContrasea);
+		JLabel lblFotoElton = new JLabel("New label");
+		lblFotoElton.setBounds(890, 53, 90, 103);
+		panelArtistas.add(lblFotoElton);
+		lblFotoElton.setIcon(new ImageIcon("src/Imagenes/elton.png"));
 
-		continuar = new JButton("INICIAR SESION");
-		continuar.setBackground(new Color(189, 219, 233));
-		continuar.setBounds(453, 331, 202, 33);
-		continuar.setFont(new Font("Tahoma", Font.BOLD, 16));
-		panelInicioSesion.add(continuar);
+		btnVotarJoel = new JButton("VOTAR");
+		btnVotarJoel.setBounds(83, 210, 85, 21);
+		panelArtistas.add(btnVotarJoel);
 
-		comboBox = new JComboBox();
-		comboBox.setBounds(584, 221, 96, 23);
-		panelInicioSesion.add(comboBox);
+		btnVotarVictoria = new JButton("VOTAR");
+		btnVotarVictoria.setBounds(271, 210, 85, 21);
+		panelArtistas.add(btnVotarVictoria);
 
-		JLabel lblErrorLogin = new JLabel("");
-		lblErrorLogin.setBounds(603, 425, 191, 23);
-		lblErrorLogin.setForeground(new Color(128, 64, 64));
-		panelInicioSesion.add(lblErrorLogin);
+		btnVotarThiago = new JButton("VOTAR");
+		btnVotarThiago.setBounds(465, 210, 85, 21);
+		panelArtistas.add(btnVotarThiago);
 
-		lblFondo = new JLabel("");
-		lblFondo.setBounds(0, 0, 1128, 626);
-		panelInicioSesion.add(lblFondo);
-		lblFondo.setIcon(new ImageIcon("src/Imagenes/fondo.jpg"));
-		
+		btnVotarSarah = new JButton("VOTAR");
+		btnVotarSarah.setBounds(688, 210, 85, 21);
+		panelArtistas.add(btnVotarSarah);
+
+		btnVotarElton = new JButton("VOTAR");
+		btnVotarElton.setBounds(895, 210, 85, 21);
+		panelArtistas.add(btnVotarElton);
+
+		JLabel lblFotoAmie = new JLabel("New label");
+		lblFotoAmie.setBounds(83, 325, 90, 103);
+		panelArtistas.add(lblFotoAmie);
+		lblFotoAmie.setIcon(new ImageIcon("src/Imagenes/amie.png"));
+
+		JLabel lblFotoNahid = new JLabel("New label");
+		lblFotoNahid.setBounds(266, 325, 90, 103);
+		panelArtistas.add(lblFotoNahid);
+		lblFotoNahid.setIcon(new ImageIcon("src/Imagenes/nahid.png"));
+
+		JLabel lblFotoMarc = new JLabel("New label");
+		lblFotoMarc.setBounds(460, 325, 90, 103);
+		panelArtistas.add(lblFotoMarc);
+		lblFotoMarc.setIcon(new ImageIcon("src/Imagenes/marc.png"));
+
+		JLabel lblFotoAlba = new JLabel("New label");
+		lblFotoAlba.setBounds(683, 325, 90, 103);
+		panelArtistas.add(lblFotoAlba);
+		lblFotoAlba.setIcon(new ImageIcon("src/Imagenes/alba.png"));
+
+		JLabel lblFotoJulio = new JLabel("New label");
+		lblFotoJulio.setBounds(890, 325, 90, 103);
+		panelArtistas.add(lblFotoJulio);
+		lblFotoJulio.setIcon(new ImageIcon("src/Imagenes/julio.png"));
+
+		btnVotarAmie = new JButton("VOTAR");
+		btnVotarAmie.setBounds(83, 507, 85, 21);
+		panelArtistas.add(btnVotarAmie);
+
+		btnVotarNahid = new JButton("VOTAR");
+		btnVotarNahid.setBounds(266, 507, 85, 21);
+		panelArtistas.add(btnVotarNahid);
+
+		btnVotarMarc = new JButton("VOTAR");
+		btnVotarMarc.setBounds(460, 507, 85, 21);
+		panelArtistas.add(btnVotarMarc);
+
+		btnVotarAlba = new JButton("VOTAR");
+		btnVotarAlba.setBounds(683, 507, 85, 21);
+		panelArtistas.add(btnVotarAlba);
+
+		btnVotarJulio = new JButton("VOTAR");
+		btnVotarJulio.setBounds(890, 507, 85, 21);
+		panelArtistas.add(btnVotarJulio);
+
+		lblFondo3 = new JLabel("");
+		lblFondo3.setForeground(new Color(255, 255, 255));
+		lblFondo3.setBounds(0, 0, 1138, 638);
+		lblFondo3.setIcon(new ImageIcon("src/Imagenes/fondo2.jpg"));
+		panelArtistas.add(lblFondo3);
+
 		timer = new Timer(1000, null);
 	}
 }

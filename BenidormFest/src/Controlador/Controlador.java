@@ -17,6 +17,8 @@ import java.util.Properties;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.ImageIcon;
+import javax.swing.JProgressBar;
 
 import Modelo.Artista;
 import Modelo.Ciudadano;
@@ -38,7 +40,10 @@ public class Controlador implements ActionListener {
 			habitantesMurcia, habitantesNavarra, habitantesVascos;
 	
 	public int numero = 5;
-
+	public int numero2 = 0;
+	 int count = 20;
+	
+	
 	public ArrayList<Artista> artistas = new ArrayList<Artista>();
 
 	public Controlador(Vista vista) throws IOException, ClassNotFoundException, SQLException,
@@ -79,7 +84,9 @@ public class Controlador implements ActionListener {
 		vista.btnVotarVictoria.addActionListener(this);
 		
 		this.vista.timer.addActionListener(this);
-		
+		vista.progressBar = new JProgressBar();
+		vista.progressBar.setMinimum(0);
+		vista. progressBar.setMaximum(100);
 		
 		llenarComboBox();
 		vista.panelInicioSesion.setVisible(false);
@@ -93,16 +100,16 @@ public class Controlador implements ActionListener {
 		System.out.println("Conexion realizada");
 
 		// Creacion de artistas
-		artistas.add(new Artista("Joel"));
-		artistas.add(new Artista("Victoria"));
-		artistas.add(new Artista("Thiago"));
-		artistas.add(new Artista("Sarah"));
-		artistas.add(new Artista("Elton"));
-		artistas.add(new Artista("Amie"));
-		artistas.add(new Artista("Nahid"));
-		artistas.add(new Artista("Marc"));
-		artistas.add(new Artista("Alba"));
-		artistas.add(new Artista("Julio"));
+		artistas.add(new Artista("Joel", "src/Imagenes/joel.png"));
+		artistas.add(new Artista("Victoria", "src/Imagenes/victoria.png"));
+		artistas.add(new Artista("Thiago", "src/Imagenes/thiago.png"));
+		artistas.add(new Artista("Sarah", "src/Imagenes/sarah.png"));
+		artistas.add(new Artista("Elton", "src/Imagenes/elton.png"));
+		artistas.add(new Artista("Amie", "src/Imagenes/amie.png"));
+		artistas.add(new Artista("Nahid", "src/Imagenes/nahid.png"));
+		artistas.add(new Artista("Marc", "src/Imagenes/marc.png"));
+		artistas.add(new Artista("Alba", "src/Imagenes/alba.png"));
+		artistas.add(new Artista("Julio", "src/Imagenes/julio.png"));
 
 		// recuperamos los arrays de los habitantes y sus rangos
 		habitantesAndalucia = recuperarHabitantes("Andalucia", conexion);
@@ -299,8 +306,13 @@ public class Controlador implements ActionListener {
 			vista.panelComunidades.setVisible(false);
 		}
 		if (e.getSource() == vista.timer) {
-            vista.lblTimer.setText(String.valueOf(numero));
+			vista.lblTimer.setText(String.valueOf(numero));
             numero = numero - 1;
+            //numero2 = numero2 + 20;
+            //System.out.println(numero2);
+
+           // vista.progressBar.setValue(numero2);
+            
             if (numero < 0) {
                 vista.timer.stop();
                vista.panelResultados.setVisible(true);
@@ -481,8 +493,47 @@ public class Controlador implements ActionListener {
 	}
 	
 	public void mostrarResultados() {
-		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosTotales));
-		vista.nombre1.setText(artistas.get(9).getNombre());
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosTotales).reversed());
+		vista.nombre1.setText(artistas.get(0).getNombre());
+		vista.foto1.setIcon(new ImageIcon(artistas.get(0).getUrlFoto()));
+		vista.primerPuesto.setIcon(new ImageIcon("src/Imagenes/1.png"));
+		
+		vista.nombre2.setText(artistas.get(1).getNombre());
+		vista.foto2.setIcon(new ImageIcon(artistas.get(1).getUrlFoto()));
+		vista.segundoPuesto.setIcon(new ImageIcon("src/Imagenes/2.png"));
+		
+		vista.nombre3.setText(artistas.get(2).getNombre());
+		vista.foto3.setIcon(new ImageIcon(artistas.get(2).getUrlFoto()));
+		vista.tercerPuesto.setIcon(new ImageIcon("src/Imagenes/3.png"));
+		
+		vista.nombre4.setText(artistas.get(3).getNombre());
+		vista.foto4.setIcon(new ImageIcon(artistas.get(3).getUrlFoto()));
+		vista.cuartoPuesto.setIcon(new ImageIcon("src/Imagenes/4.png"));
+		
+		vista.nombre5.setText(artistas.get(4).getNombre());
+		vista.foto5.setIcon(new ImageIcon(artistas.get(4).getUrlFoto()));
+		vista.quintoPuesto.setIcon(new ImageIcon("src/Imagenes/5.png"));
+		
+		vista.nombre6.setText(artistas.get(5).getNombre());
+		vista.foto6.setIcon(new ImageIcon(artistas.get(5).getUrlFoto()));
+		vista.sextoPuesto.setIcon(new ImageIcon("src/Imagenes/6.png"));
+		
+		vista.nombre7.setText(artistas.get(6).getNombre());
+		vista.foto7.setIcon(new ImageIcon(artistas.get(6).getUrlFoto()));
+		vista.septimoPuesto.setIcon(new ImageIcon("src/Imagenes/7.png"));
+		
+		vista.nombre8.setText(artistas.get(7).getNombre());
+		vista.foto8.setIcon(new ImageIcon(artistas.get(7).getUrlFoto()));
+		vista.octavoPuesto.setIcon(new ImageIcon("src/Imagenes/8.png"));
+		
+		vista.nombre9.setText(artistas.get(8).getNombre());
+		vista.foto9.setIcon(new ImageIcon(artistas.get(8).getUrlFoto()));
+		vista.novenoPuesto.setIcon(new ImageIcon("src/Imagenes/9.png"));
+		
+		vista.nombre10.setText(artistas.get(9).getNombre());
+		vista.foto10.setIcon(new ImageIcon(artistas.get(9).getUrlFoto()));
+		vista.decimoPuesto.setIcon(new ImageIcon("src/Imagenes/10.png"));
+		
 		for(int i = 0; i<artistas.size();i++) {
 			System.out.println(artistas.get(i).toString());
 		}
