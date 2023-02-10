@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Properties;
 
 import javax.sound.sampled.LineUnavailableException;
@@ -474,9 +476,16 @@ public class Controlador implements ActionListener {
 			vas.start();
 		}
 		
+		mostrarResultados();
 		
-		
-		
+	}
+	
+	public void mostrarResultados() {
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosTotales));
+		vista.nombre1.setText(artistas.get(9).getNombre());
+		for(int i = 0; i<artistas.size();i++) {
+			System.out.println(artistas.get(i).toString());
+		}
 	}
 
 }// end controlador

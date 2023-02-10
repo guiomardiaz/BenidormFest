@@ -45,6 +45,10 @@ public class Vista extends JFrame {
 	private JLabel lblFondo3;
 	public JLabel lblLoading;
 	public Timer timer;
+	private JLabel lblNewLabel_2;
+	public JLabel foto1;
+	public JLabel nombre1;
+	public JLabel primerPuesto;
 	/**
 	 * Launch the application.
 	 */
@@ -78,6 +82,23 @@ public class Vista extends JFrame {
 		 				 panelResultados = new JPanel();
 		 				 panelResultados.setBounds(0, 0, 1138, 636);
 		 				 contentPane.add(panelResultados);
+		 				 panelResultados.setLayout(null);
+		 				 
+		 				 lblNewLabel_2 = new JLabel("RESULTADOS DE LAS VOTACIONES");
+		 				 lblNewLabel_2.setBounds(30, 47, 234, 54);
+		 				 panelResultados.add(lblNewLabel_2);
+		 				 
+		 				 foto1 = new JLabel("New label");
+		 				 foto1.setBounds(85, 209, 133, 116);
+		 				 panelResultados.add(foto1);
+		 				 
+		 				 nombre1 = new JLabel("New label");
+		 				 nombre1.setBounds(133, 169, 85, 30);
+		 				 panelResultados.add(nombre1);
+		 				 
+		 				 primerPuesto = new JLabel("1");
+		 				 primerPuesto.setBounds(78, 158, 45, 41);
+		 				 panelResultados.add(primerPuesto);
 		 
 		 		panelProceso = new JPanel();
 		 		panelProceso.setBackground(new Color(22, 20, 28));

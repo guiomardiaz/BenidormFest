@@ -181,6 +181,19 @@ public class Artista {
 	public void setVotosMelilla(int votosMelilla) {
 		this.votosMelilla = votosMelilla;
 	}
+
+	@Override
+	public String toString() {
+		return "Artista [nombre=" + nombre + ", urlFoto=" + urlFoto + ", votosTotales=" + votosTotales
+				+ ", votosAndaluces=" + votosAndaluces + ", votosAragoneses=" + votosAragoneses + ", votosAsturianos="
+				+ votosAsturianos + ", votosBaleares=" + votosBaleares + ", votosCanarios=" + votosCanarios
+				+ ", votosCantabricos=" + votosCantabricos + ", votosCLM=" + votosCLM + ", votosCYL=" + votosCYL
+				+ ", votosCatalanes=" + votosCatalanes + ", votosValencianos=" + votosValencianos + ", votosExtremeños="
+				+ votosExtremeños + ", votosGallegos=" + votosGallegos + ", votosMadrileños=" + votosMadrileños
+				+ ", votosMurcianos=" + votosMurcianos + ", votosNavarra=" + votosNavarra + ", votosVascos="
+				+ votosVascos + ", votosRioja=" + votosRioja + ", votosCeuta=" + votosCeuta + ", votosMelilla="
+				+ votosMelilla + "]";
+	}
 	
 	
 
