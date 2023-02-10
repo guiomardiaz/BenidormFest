@@ -34,6 +34,8 @@ public class Controlador implements ActionListener {
 			habitantesCantabria, habitantesCLM, habitantesCYL, habitantesCatalunia, habitantesCeuta, habitantesValencia,
 			habitantesExtremadura, habitantesGalicia, habitantesRioja, habitantesMadrid, habitantesMelilla,
 			habitantesMurcia, habitantesNavarra, habitantesVascos;
+	
+	public int numero = 5;
 
 	public ArrayList<Artista> artistas = new ArrayList<Artista>();
 
@@ -74,11 +76,15 @@ public class Controlador implements ActionListener {
 		vista.btnVotarThiago.addActionListener(this);
 		vista.btnVotarVictoria.addActionListener(this);
 		
+		this.vista.timer.addActionListener(this);
+		
 		
 		llenarComboBox();
 		vista.panelInicioSesion.setVisible(false);
 		vista.panelComunidades.setVisible(false);
 		vista.panelArtistas.setVisible(false);
+		vista.panelProceso.setVisible(false);
+		vista.panelResultados.setVisible(false);
 
 		conexion = crearConexion();
 
@@ -290,6 +296,15 @@ public class Controlador implements ActionListener {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
 		}
+		if (e.getSource() == vista.timer) {
+            vista.lblTimer.setText(String.valueOf(numero));
+            numero = numero - 1;
+            if (numero < 0) {
+                vista.timer.stop();
+               vista.panelResultados.setVisible(true);
+               vista.panelProceso.setVisible(false);
+            }
+            }
 		
 		
 		
@@ -379,6 +394,8 @@ public class Controlador implements ActionListener {
 	}
 
 	public void empezar() {
+
+		vista.timer.start();
 		// Generacion andaluces
 		for (int i = 0; i < votantesAndalucia; i++) {
 			Ciudadano andaluz = new Ciudadano("Andalucia", habitantesAndalucia, artistas);
@@ -456,6 +473,10 @@ public class Controlador implements ActionListener {
 			Ciudadano vas = new Ciudadano("Pais Vasco", habitantesVascos, artistas);
 			vas.start();
 		}
+		
+		
+		
+		
 	}
 
 }// end controlador

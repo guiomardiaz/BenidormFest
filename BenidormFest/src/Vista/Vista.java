@@ -13,6 +13,8 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.print.attribute.AttributeSetUtilities;
@@ -24,10 +26,10 @@ import javax.swing.JCheckBox;
 public class Vista extends JFrame {
 
 	public JPanel contentPane;
-	public JPanel PanelInicio, panelInicioSesion, panelComunidades, panelArtistas, panelProceso;
+	public JPanel PanelInicio, panelInicioSesion, panelComunidades, panelArtistas, panelProceso, panelResultados;
 	public JButton btnEmpezar, continuar, btnVotarJoel, btnVotarVictoria, btnVotarThiago, btnVotarSarah, btnVotarElton,
 			btnVotarAmie, btnVotarNahid, btnVotarMarc, btnVotarAlba, btnVotarJulio;
-	public JLabel lblFoto;
+	public JLabel lblFoto, lblTimer;
 	public JLabel lblBienvenido;
 	public JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
@@ -41,7 +43,8 @@ public class Vista extends JFrame {
 	private JLabel lblLogin;
 	private JLabel lblFondo2;
 	private JLabel lblFondo3;
-
+	public JLabel lblLoading;
+	public Timer timer;
 	/**
 	 * Launch the application.
 	 */
@@ -71,6 +74,59 @@ public class Vista extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		 		
+		 				 panelResultados = new JPanel();
+		 				 panelResultados.setBounds(0, 0, 1138, 636);
+		 				 contentPane.add(panelResultados);
+		 
+		 		panelProceso = new JPanel();
+		 		panelProceso.setBackground(new Color(22, 20, 28));
+		 		panelProceso.setBounds(0, 0, 1138, 636);
+		 		contentPane.add(panelProceso);
+		 		panelProceso.setLayout(null);
+		 		
+		 				lblLoading = new JLabel("");
+		 				lblLoading.setBounds(307, 68, 532, 470);
+		 				panelProceso.add(lblLoading);
+		 				lblLoading.setIcon(new ImageIcon("src/Imagenes/loading2.gif"));
+		 				
+		 				 lblTimer = new JLabel("5");
+		 				lblTimer.setBounds(26, 21, 45, 13);
+		 				panelProceso.add(lblTimer);
+
+		PanelInicio = new JPanel();
+		PanelInicio.setBackground(new Color(0, 0, 0));
+		PanelInicio.setBounds(0, 0, 1138, 636);
+		contentPane.add(PanelInicio);
+		PanelInicio.setLayout(null);
+
+		btnEmpezar = new JButton("EMPEZAR");
+		btnEmpezar.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnEmpezar.setBounds(430, 505, 214, 98);
+		PanelInicio.add(btnEmpezar);
+
+		lblFoto = new JLabel("");
+		lblFoto.setBounds(399, 163, 264, 120);
+		PanelInicio.add(lblFoto);
+		lblFoto.setIcon(new ImageIcon("src/Imagenes/benidorm.png"));
+
+		lblBienvenido = new JLabel("Bienvenido a las votaciones de Benidorm Fest");
+		lblBienvenido.setForeground(Color.WHITE);
+		lblBienvenido.setFont(new Font("Tahoma", Font.PLAIN, 32));
+		lblBienvenido.setBounds(217, 47, 666, 74);
+		PanelInicio.add(lblBienvenido);
+
+		lblNewLabel = new JLabel("Aquí podrás ver en tiempo real los votos realizados");
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel.setBounds(285, 341, 531, 37);
+		PanelInicio.add(lblNewLabel);
+
+		lblNewLabel_1 = new JLabel("por los votantes de cada Comunidad");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setBounds(365, 388, 397, 26);
+		PanelInicio.add(lblNewLabel_1);
 
 		panelArtistas = new JPanel();
 		panelArtistas.setBounds(0, 0, 1138, 626);
@@ -343,43 +399,7 @@ public class Vista extends JFrame {
 		lblFondo.setBounds(0, 0, 1128, 626);
 		panelInicioSesion.add(lblFondo);
 		lblFondo.setIcon(new ImageIcon("src/Imagenes/fondo.jpg"));
-
-		PanelInicio = new JPanel();
-		PanelInicio.setBackground(new Color(0, 0, 0));
-		PanelInicio.setBounds(0, 0, 1138, 636);
-		contentPane.add(PanelInicio);
-		PanelInicio.setLayout(null);
-
-		btnEmpezar = new JButton("EMPEZAR");
-		btnEmpezar.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnEmpezar.setBounds(430, 505, 214, 98);
-		PanelInicio.add(btnEmpezar);
-
-		lblFoto = new JLabel("");
-		lblFoto.setBounds(399, 163, 264, 120);
-		PanelInicio.add(lblFoto);
-		lblFoto.setIcon(new ImageIcon("src/Imagenes/benidorm.png"));
-
-		lblBienvenido = new JLabel("Bienvenido a las votaciones de Benidorm Fest");
-		lblBienvenido.setForeground(Color.WHITE);
-		lblBienvenido.setFont(new Font("Tahoma", Font.PLAIN, 32));
-		lblBienvenido.setBounds(217, 47, 666, 74);
-		PanelInicio.add(lblBienvenido);
-
-		lblNewLabel = new JLabel("Aquí podrás ver en tiempo real los votos realizados");
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel.setBounds(285, 341, 531, 37);
-		PanelInicio.add(lblNewLabel);
-
-		lblNewLabel_1 = new JLabel("por los votantes de cada Comunidad");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBounds(365, 388, 397, 26);
-		PanelInicio.add(lblNewLabel_1);
-
-		panelProceso = new JPanel();
-		panelProceso.setBounds(0, 0, 1138, 636);
-		contentPane.add(panelProceso);
+		
+		timer = new Timer(1000, null);
 	}
 }
