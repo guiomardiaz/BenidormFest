@@ -26,7 +26,7 @@ import Modelo.Artista;
 import Modelo.Ciudadano;
 import Vista.Vista;
 
-public class Controlador implements ActionListener, MouseListener {
+public class Controlador implements ActionListener {
 
 	public Vista vista = new Vista();
 
@@ -49,6 +49,11 @@ public class Controlador implements ActionListener, MouseListener {
 
 	public ArrayList<Artista> artistas = new ArrayList<Artista>();
 	public ArrayList<Artista> aux = new ArrayList<Artista>();
+	public ArrayList<String> nombresColeccion = new ArrayList<String>();
+	public String nombreUsuario;
+	public int edadUsuario;
+	public String comunidadUsuario;
+	public String artistaUsuario;
 
 	public Controlador(Vista vista) throws IOException, ClassNotFoundException, SQLException,
 			UnsupportedAudioFileException, LineUnavailableException {
@@ -94,6 +99,7 @@ public class Controlador implements ActionListener, MouseListener {
 
 		vista.btnComunidad.addActionListener(this);
 		vista.btnGenerales.addActionListener(this);
+		vista.btnRangoEdad.addActionListener(this);
 
 		llenarComboBox();
 		vista.panelInicioSesion.setVisible(false);
@@ -107,9 +113,14 @@ public class Controlador implements ActionListener, MouseListener {
 		conexion = crearConexion();
 
 		System.out.println("Conexion realizada");
+		
+		//Chequeando usuarios
+		nombresColeccion = recuperarNombres(conexion);
 
 		// Creacion de artistas
 		aux = recuperarArtistas(conexion);
+		
+		
 		aux.get(0).setUrlFoto("src/Imagenes/joel.png");
 		aux.get(1).setUrlFoto("src/Imagenes/marc.png");
 		aux.get(2).setUrlFoto("src/Imagenes/alba.png");
@@ -223,6 +234,29 @@ public class Controlador implements ActionListener, MouseListener {
 		vista.lblIcono10.setIcon(new ImageIcon("src/Imagenes/music.png"));
 	}
 
+	private ArrayList<String> recuperarNombres(Connection conexion2) {
+		 ArrayList<String> nombres = new  ArrayList<String>();
+		 String sentencia = "SELECT NOMBRE FROM USUARIO";
+
+			Statement statement = null;
+			ResultSet resultSet = null;
+			try {
+				statement = conexion.createStatement();
+				resultSet = statement.executeQuery(sentencia);
+				String nombre;
+				while (resultSet.next()) {
+					
+					nombre = resultSet.getString("NOMBRE");
+					
+					nombres.add(nombre);
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		return nombres;
+	}
+
 	private ArrayList<Artista> recuperarArtistas(Connection conexion) {
 		ArrayList<Artista> artistas = new ArrayList<Artista>();
 		String sentencia = "SELECT DNI, NOMBRE, APELLIDOS, TELEFONO, NOMBRE_CANCION, VOTOS FROM CANTANTES";
@@ -252,51 +286,71 @@ public class Controlador implements ActionListener, MouseListener {
 		if (e.getSource() == vista.btnVotarAlba) {
 			vista.panelProceso.setVisible(true);
 			vista.panelArtistas.setVisible(false);
+			artistaUsuario = "Alba";
+			insertarUsuario();
 			empezar();
 		}
 		if (e.getSource() == vista.btnVotarAmie) {
 			vista.panelProceso.setVisible(true);
 			vista.panelArtistas.setVisible(false);
+			artistaUsuario = "Amie";
+			insertarUsuario();
 			empezar();
 		}
 		if (e.getSource() == vista.btnVotarElton) {
 			vista.panelProceso.setVisible(true);
 			vista.panelArtistas.setVisible(false);
+			artistaUsuario = "Elton";
+			insertarUsuario();
 			empezar();
 		}
 		if (e.getSource() == vista.btnVotarJoel) {
 			vista.panelProceso.setVisible(true);
 			vista.panelArtistas.setVisible(false);
+			artistaUsuario = "Joel";
+			insertarUsuario();
 			empezar();
 		}
 		if (e.getSource() == vista.btnVotarJulio) {
 			vista.panelProceso.setVisible(true);
 			vista.panelArtistas.setVisible(false);
+			artistaUsuario = "Julio";
+			insertarUsuario();
 			empezar();
 		}
 		if (e.getSource() == vista.btnVotarMarc) {
 			vista.panelProceso.setVisible(true);
 			vista.panelArtistas.setVisible(false);
+			artistaUsuario = "Marc";
+			insertarUsuario();
 			empezar();
 		}
 		if (e.getSource() == vista.btnVotarNahid) {
 			vista.panelProceso.setVisible(true);
 			vista.panelArtistas.setVisible(false);
+			artistaUsuario = "Nahid";
+			insertarUsuario();
 			empezar();
 		}
 		if (e.getSource() == vista.btnVotarSarah) {
 			vista.panelProceso.setVisible(true);
 			vista.panelArtistas.setVisible(false);
+			artistaUsuario = "Sarah";
+			insertarUsuario();
 			empezar();
 		}
 		if (e.getSource() == vista.btnVotarThiago) {
 			vista.panelProceso.setVisible(true);
 			vista.panelArtistas.setVisible(false);
+			artistaUsuario = "Thiago";
+			insertarUsuario();
 			empezar();
 		}
 		if (e.getSource() == vista.btnVotarVictoria) {
 			vista.panelProceso.setVisible(true);
 			vista.panelArtistas.setVisible(false);
+			artistaUsuario = "Victoria";
+			insertarUsuario();
 			empezar();
 		}
 
@@ -307,90 +361,115 @@ public class Controlador implements ActionListener, MouseListener {
 		} // end btn empezar
 
 		if (e.getSource() == vista.continuar) {
+			if(!vista.fieldNombre.getText().isEmpty()) {
+				if(!nombresColeccion.contains(vista.fieldNombre.getText().toString())) {
 			vista.panelComunidades.setVisible(true);
 			vista.panelInicioSesion.setVisible(false);
+			vista.lblErrorLogin.setText("");
+			nombreUsuario = vista.fieldNombre.getText().toString();
+			edadUsuario = Integer.parseInt(vista.comboBox.getSelectedItem().toString());
+				}else {
+					vista.lblErrorLogin.setText("ESTE USUARIO YA HA VOTADO");
+				}
+			}else {
+				vista.lblErrorLogin.setText("INTRODUCE UN NOMBRE");
+			}
 		}
 
 		if (e.getSource() == vista.rdbtnAndalucia) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
-
+			comunidadUsuario = "Andalucia";
 		}
 		if (e.getSource() == vista.rdbtnAragon) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
-
+			comunidadUsuario = "Aragon";
 		}
 		if (e.getSource() == vista.rdbtnAsturias) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
-
+			comunidadUsuario = "Asturias";
 		}
 		if (e.getSource() == vista.rdbtnBaleares) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
-
+			comunidadUsuario = "Baleares";
 		}
 		if (e.getSource() == vista.rdbtnCanarias) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
-
+			comunidadUsuario = "Canarias";
 		}
 		if (e.getSource() == vista.rdbtnCantabria) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
+			comunidadUsuario = "Cantabria";
 		}
 		if (e.getSource() == vista.rdbtnCatalunya) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
+			comunidadUsuario = "Cataluña";
 		}
 		if (e.getSource() == vista.rdbtnCeuta) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
+			comunidadUsuario = "Ceuta";
 		}
 		if (e.getSource() == vista.rdbtnCLM) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
+			comunidadUsuario = "Castilla-La Mancha";
 		}
 		if (e.getSource() == vista.rdbtnCYL) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
+			comunidadUsuario = "Castilla y Leon";
 		}
 		if (e.getSource() == vista.rdbtnExtremadura) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
+			comunidadUsuario = "Extremadura";
 		}
 		if (e.getSource() == vista.rdbtnGalicia) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
+			comunidadUsuario = "Galicia";
 		}
 		if (e.getSource() == vista.rdbtnLaRioja) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
+			comunidadUsuario = "La Rioja";
 		}
 		if (e.getSource() == vista.rdbtnMadrid) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
+			comunidadUsuario = "Madrid";
 		}
 		if (e.getSource() == vista.rdbtnMelilla) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
+			comunidadUsuario = "Melilla";
 		}
 		if (e.getSource() == vista.rdbtnMurcia) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
+			comunidadUsuario = "Murcia";
 		}
 		if (e.getSource() == vista.rdbtnNavarra) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
+			comunidadUsuario = "Navarra";
 		}
 		if (e.getSource() == vista.rdbtnPaisVasco) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
+			comunidadUsuario = "Pais Vasco";
 		}
 		if (e.getSource() == vista.rdbtnValencia) {
 			vista.panelArtistas.setVisible(true);
 			vista.panelComunidades.setVisible(false);
+			comunidadUsuario = "Valencia";
 		}
 		if (e.getSource() == vista.timer) {
 			vista.lblTimer.setText(String.valueOf(numero));
@@ -418,88 +497,115 @@ public class Controlador implements ActionListener, MouseListener {
 
 			}
 		}
+		
+		if(e.getSource()== vista.btnRangoEdad) {
+			selector =2;
+			if(selector == 2) {
+				vista.comboFiltro.setVisible(true);
+				vista.comboFiltro.removeAllItems();
+				llenarFiltrosEdad();
+			}
+		}
+		
 		if (e.getSource() == vista.comboFiltro) {
-			String comunidad;
+			String filtro;
 			try {
-				comunidad = vista.comboFiltro.getSelectedItem().toString();
-				if (comunidad.equals("Andalucia")) {
+				filtro = vista.comboFiltro.getSelectedItem().toString();
+				if (filtro.equals("Andalucia")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosAndaluces).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Aragon")) {
+				if (filtro.equals("Aragon")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosAragoneses).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Asturias")) {
+				if (filtro.equals("Asturias")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosAsturianos).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Baleares")) {
+				if (filtro.equals("Baleares")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosBaleares).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Canarias")) {
+				if (filtro.equals("Canarias")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCanarios).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Cantabria")) {
+				if (filtro.equals("Cantabria")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCantabricos).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Castilla y Leon")) {
+				if (filtro.equals("Castilla y Leon")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCYL).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Castilla-La Mancha")) {
+				if (filtro.equals("Castilla-La Mancha")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCLM).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Cataluña")) {
+				if (filtro.equals("Cataluña")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCatalanes).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Valencia")) {
+				if (filtro.equals("Valencia")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosValencianos).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Extremadura")) {
+				if (filtro.equals("Extremadura")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosExtremeños).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Galicia")) {
+				if (filtro.equals("Galicia")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosGallegos).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Madrid")) {
+				if (filtro.equals("Madrid")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosMadrileños).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Murcia")) {
+				if (filtro.equals("Murcia")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosMurcianos).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Navarra")) {
+				if (filtro.equals("Navarra")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosNavarra).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Pais Vasco")) {
+				if (filtro.equals("Pais Vasco")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosVascos).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("La Rioja")) {
+				if (filtro.equals("La Rioja")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosRioja).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Ceuta")) {
+				if (filtro.equals("Ceuta")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCeuta).reversed());
 					mostrarResultadosGenerales();
 				}
-				if (comunidad.equals("Melilla")) {
+				if (filtro.equals("Melilla")) {
 					Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosMelilla).reversed());
 					mostrarResultadosGenerales();
 				}
+				//-------------------------------------------------------
+				//-------------------------------------------------------
+				//-------------------------------------------------------
+				//-------------------------------------------------------
+				if(filtro.equals("Rango 18 a 25")) {
+					Collections.sort(artistas, Comparator.comparingInt(Artista::getRango18_25).reversed());
+					mostrarResultadosGenerales();
+				}if(filtro.equals("Rango 26 a 40")) {
+					Collections.sort(artistas, Comparator.comparingInt(Artista::getRango26_40).reversed());
+					mostrarResultadosGenerales();
+				}if(filtro.equals("Rango 41 a 65")) {
+					Collections.sort(artistas, Comparator.comparingInt(Artista::getRango41_65).reversed());
+					mostrarResultadosGenerales();
+				}if(filtro.equals("Rango 66 o mayor")) {
+					Collections.sort(artistas, Comparator.comparingInt(Artista::getRango66mas).reversed());
+					mostrarResultadosGenerales();
+				}
 			} catch (NullPointerException w) {
-				comunidad = "";
+				filtro = "";
 			}
 		}
 		if (e.getSource() == vista.btnGenerales) {
@@ -511,6 +617,7 @@ public class Controlador implements ActionListener, MouseListener {
 				vista.comboFiltro.setVisible(false);
 			}
 		}
+		
 
 	}// end action listener
 
@@ -534,6 +641,14 @@ public class Controlador implements ActionListener, MouseListener {
 		vista.comboFiltro.addItem("La Rioja");
 		vista.comboFiltro.addItem("Ceuta");
 		vista.comboFiltro.addItem("Melilla");
+	}
+	
+	public void llenarFiltrosEdad() {
+		vista.comboFiltro.addItem("Rango 18 a 25");
+		vista.comboFiltro.addItem("Rango 26 a 40");
+		vista.comboFiltro.addItem("Rango 41 a 65");
+		vista.comboFiltro.addItem("Rango 66 o mayor");
+
 	}
 
 	private int contadorTotal(int[] habitantes) {
@@ -696,10 +811,124 @@ public class Controlador implements ActionListener, MouseListener {
 			Ciudadano vas = new Ciudadano("Pais Vasco", habitantesVascos, artistas);
 			vas.start();
 		}
+		
+		//
+		contarVotosTotales();
+		
+		//
 		if (selector == 0) {
 			Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosTotales).reversed());
 			mostrarResultadosGenerales();
 		}
+	}
+
+	public void contarVotosTotales() {
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosAndaluces).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosAragoneses).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosAsturianos).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosAndaluces).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosBaleares).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCanarios).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCantabricos).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCatalanes).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCeuta).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCLM).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCYL).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosExtremeños).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosValencianos).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosGallegos).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosMadrileños).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosMurcianos).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosNavarra).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosVascos).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosRioja).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosMelilla).reversed());
+		artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales()+15);
+		artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales()+10);
+		artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales()+8);
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	public void mostrarResultadosGenerales() {
@@ -743,42 +972,48 @@ public class Controlador implements ActionListener, MouseListener {
 		vista.nombre10.setText(artistas.get(9).getNombre());
 		vista.foto10.setIcon(new ImageIcon(artistas.get(9).getUrlFoto()));
 		vista.decimoPuesto.setIcon(new ImageIcon("src/Imagenes/10.png"));
-
-		for (int i = 0; i < artistas.size(); i++) {
+		for(int i = 0; i<artistas.size();i++) {
 			System.out.println(artistas.get(i).toString());
 		}
-	}
-
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		if (e.getClickCount() == 1) {
-
+		for(int i = 0; i<artistas.size(); i++) {
+	updates(artistas.get(i).getVotosTotales(), artistas.get(i).getNombre(), conexion);
 		}
 
+	}//end de algo no borrar
+	private void updates(int votos, String nombre, Connection conexion) {
+		String sentencia = "UPDATE CANTANTES SET VOTOS = ? WHERE NOMBRE = ?";
+		PreparedStatement preparedStatement = null;
+
+		try {
+
+			preparedStatement = conexion.prepareStatement(sentencia);
+			preparedStatement.setInt(1, votos);
+			preparedStatement.setString(2, nombre);
+			preparedStatement.executeUpdate();
+
+			conexion.commit();
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
 	}
 
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-
+	public void insertarUsuario() {
+		String sentencia = "INSERT INTO USUARIO(NOMBRE, COMUNIDAD, EDAD, ARTISTA) VALUES (?,?,?,?)";
+		PreparedStatement prepared = null;
+		try {
+			prepared = conexion.prepareStatement(sentencia);
+			prepared.setString(1, nombreUsuario);
+			prepared.setString(2, comunidadUsuario);
+			prepared.setInt(3, edadUsuario);
+			prepared.setString(4, artistaUsuario);
+			prepared.executeUpdate();
+			conexion.commit();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }// end controlador

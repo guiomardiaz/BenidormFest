@@ -10,7 +10,7 @@ public class Artista {
 	int votosAndaluces, votosAragoneses, votosAsturianos , votosBaleares ,votosCanarios ,
 	votosCantabricos, votosCLM ,votosCYL ,votosCatalanes ,votosValencianos ,votosExtremeños,
 	votosGallegos, votosMadrileños, votosMurcianos, votosNavarra, votosVascos, votosRioja,
-	votosCeuta, votosMelilla;
+	votosCeuta, votosMelilla, rango18_25, rango26_40, rango41_65, rango66mas;
 	
 	public Artista() {
 		super();
@@ -227,6 +227,54 @@ public class Artista {
 	public void setNombreCancion(String nombreCancion) {
 		this.nombreCancion = nombreCancion;
 	}
+
+
+	public int getRango18_25() {
+		return rango18_25;
+	}
+
+
+
+	public void setRango18_25(int rango18_25) {
+		this.rango18_25 = rango18_25;
+	}
+
+
+
+	public int getRango26_40() {
+		return rango26_40;
+	}
+
+
+
+	public void setRango26_40(int rango26_40) {
+		this.rango26_40 = rango26_40;
+	}
+
+
+
+	public int getRango41_65() {
+		return rango41_65;
+	}
+
+
+
+	public void setRango41_65(int rango41_65) {
+		this.rango41_65 = rango41_65;
+	}
+
+
+
+	public int getRango66mas() {
+		return rango66mas;
+	}
+
+
+
+	public void setRango66mas(int rango66mas) {
+		this.rango66mas = rango66mas;
+	}
+
 
 
 	@Override

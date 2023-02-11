@@ -41,35 +41,57 @@ public class Ciudadano extends Thread {
 			int num9, String comunidad) {
 		aleatorio = (int) (Math.random() * 101);
 		if (aleatorio <= num1) {
-			artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales() + 1);
-			comprobarComunidad(comunidad, 0);	
+			//artistas.get(0).setVotosTotales(artistas.get(0).getVotosTotales() + 1);
+			comprobarComunidad(comunidad, 0);
+			comprobarRangoEdad(num1, 0);
 		} else if (aleatorio > num1 && aleatorio <= num2) {
-			artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales() + 1);
+			//artistas.get(1).setVotosTotales(artistas.get(1).getVotosTotales() + 1);
 			comprobarComunidad(comunidad, 1);	
+			comprobarRangoEdad(num1, 1);
 		} else if (aleatorio > num2 && aleatorio <= num3) {
-			artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales() + 1);
-			comprobarComunidad(comunidad, 2);	
+			//artistas.get(2).setVotosTotales(artistas.get(2).getVotosTotales() + 1);
+			comprobarComunidad(comunidad, 2);
+			comprobarRangoEdad(num1, 2);
 		} else if (aleatorio > num3 && aleatorio <= num4) {
-			artistas.get(3).setVotosTotales(artistas.get(3).getVotosTotales() + 1);
+			//artistas.get(3).setVotosTotales(artistas.get(3).getVotosTotales() + 1);
 			comprobarComunidad(comunidad, 3);	
+			comprobarRangoEdad(num1, 3);
 		} else if (aleatorio > num4 && aleatorio <= num5) {
-			artistas.get(4).setVotosTotales(artistas.get(4).getVotosTotales() + 1);
-			comprobarComunidad(comunidad, 4);	
+			//artistas.get(4).setVotosTotales(artistas.get(4).getVotosTotales() + 1);
+			comprobarComunidad(comunidad, 4);
+			comprobarRangoEdad(num1, 4);
 		} else if (aleatorio > num5 && aleatorio <= num6) {
-			artistas.get(5).setVotosTotales(artistas.get(5).getVotosTotales() + 1);
+			//artistas.get(5).setVotosTotales(artistas.get(5).getVotosTotales() + 1);
 			comprobarComunidad(comunidad, 5);	
+			comprobarRangoEdad(num1,5);
 		} else if (aleatorio > num6 && aleatorio <= num7) {
-			artistas.get(6).setVotosTotales(artistas.get(6).getVotosTotales() + 1);
-			comprobarComunidad(comunidad, 6);	
+			//artistas.get(6).setVotosTotales(artistas.get(6).getVotosTotales() + 1);
+			comprobarComunidad(comunidad, 6);
+			comprobarRangoEdad(num1, 6);
 		} else if (aleatorio > num7 && aleatorio <= num8) {
-			artistas.get(7).setVotosTotales(artistas.get(7).getVotosTotales() + 1);
+			//artistas.get(7).setVotosTotales(artistas.get(7).getVotosTotales() + 1);
 			comprobarComunidad(comunidad, 7);	
+			comprobarRangoEdad(num1,7);
 		} else if (aleatorio > num8 && aleatorio <= num9) {
-			artistas.get(8).setVotosTotales(artistas.get(8).getVotosTotales() + 1);
+			//artistas.get(8).setVotosTotales(artistas.get(8).getVotosTotales() + 1);
 			comprobarComunidad(comunidad, 8);	
+			comprobarRangoEdad(num1,8);
 		} else if (aleatorio > num9 && aleatorio <= 100) {
-			artistas.get(9).setVotosTotales(artistas.get(9).getVotosTotales() + 1);
+			//artistas.get(9).setVotosTotales(artistas.get(9).getVotosTotales() + 1);
 			comprobarComunidad(comunidad, 9);	
+			comprobarRangoEdad(num1, 9);
+		}
+	}
+
+	private void comprobarRangoEdad(int num1, int i) {
+		if(num1 == 7) {
+			artistas.get(i).setRango18_25(artistas.get(i).getRango18_25()+1);
+		}else if(num1==14) {
+			artistas.get(i).setRango26_40(artistas.get(i).getRango26_40()+1);
+		}else if(num1 ==5) {
+			artistas.get(i).setRango41_65(artistas.get(i).getRango41_65()+1);
+		}else if(num1 ==3) {
+			artistas.get(i).setRango66mas(artistas.get(i).getRango66mas()+1);
 		}
 	}
 
