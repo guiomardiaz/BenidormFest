@@ -24,18 +24,20 @@ import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
 import javax.swing.JProgressBar;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Vista extends JFrame {
 
 	public JPanel contentPane;
 	public JPanel PanelInicio, panelInicioSesion, panelComunidades, panelArtistas, panelProceso, panelResultados;
 	public JButton btnEmpezar, continuar, btnVotarJoel, btnVotarVictoria, btnVotarThiago, btnVotarSarah, btnVotarElton,
-			btnVotarAmie, btnVotarNahid, btnVotarMarc, btnVotarAlba, btnVotarJulio;
+			btnVotarAmie, btnVotarNahid, btnVotarMarc, btnVotarAlba, btnVotarJulio, btnGenerales;
 	public JLabel lblTimer;
 	public JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	public JTextField fieldNombre;
-	public JComboBox comboBox;
+	public JComboBox comboBox, comboFiltro;
 	private JLabel lblEspana;
 	public JRadioButton rdbtnAsturias, rdbtnMelilla, rdbtnCantabria, rdbtnPaisVasco, rdbtnNavarra, rdbtnAragon,
 			rdbtnCatalunya, rdbtnCYL, rdbtnMadrid, rdbtnCLM, rdbtnExtremadura, rdbtnValencia, rdbtnAndalucia,
@@ -56,7 +58,7 @@ public class Vista extends JFrame {
 	private JLabel lblBorde3;
 	private JLabel lblNewLabel_4;
 	private JLabel lblFondoFinal;
-	private JButton btnComunidad;
+	public JButton btnComunidad;
 	private JButton btnRangoEdad;
 	private JLabel lblNewLabel_5;
 	public JProgressBar progressBar;
@@ -91,141 +93,6 @@ public class Vista extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-				panelProceso = new JPanel();
-				panelProceso.setBackground(new Color(22, 20, 28));
-				panelProceso.setBounds(0, 0, 1138, 636);
-				contentPane.add(panelProceso);
-				panelProceso.setLayout(null);
-				
-						lblLoading = new JLabel("");
-						lblLoading.setBounds(355, 104, 532, 470);
-						panelProceso.add(lblLoading);
-						lblLoading.setIcon(new ImageIcon("src/Imagenes/loading2.gif"));
-						
-								lblTimer = new JLabel("5");
-								lblTimer.setFont(new Font("Tahoma", Font.PLAIN, 25));
-								lblTimer.setForeground(new Color(255, 255, 255));
-								lblTimer.setBounds(760, 24, 189, 49);
-								panelProceso.add(lblTimer);
-								
-										lblNewLabel_4 = new JLabel("Procesando Las Votaciones:");
-										lblNewLabel_4.setForeground(new Color(255, 255, 255));
-										lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 25));
-										lblNewLabel_4.setBounds(373, 24, 344, 49);
-										panelProceso.add(lblNewLabel_4);
-										
-										JProgressBar progressBar = new JProgressBar();
-										progressBar.setValue(20);
-										progressBar.setBounds(499, 584, 146, 21);
-										panelProceso.add(progressBar);
-
-		PanelInicio = new JPanel();
-		PanelInicio.setBackground(new Color(0, 0, 0));
-		PanelInicio.setBounds(0, 0, 1138, 636);
-		contentPane.add(PanelInicio);
-		PanelInicio.setLayout(null);
-
-		lblBorde3 = new JLabel("");
-		lblBorde3.setBounds(255, 43, 562, 106);
-		Border border4= BorderFactory.createLineBorder(Color.WHITE, 3);
-		lblBorde3.setBorder(border4);
-		PanelInicio.add(lblBorde3);
-
-		btnEmpezar = new JButton("ENTRAR");
-		btnEmpezar.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnEmpezar.setBounds(431, 520, 214, 64);
-		PanelInicio.add(btnEmpezar);
-
-		lblNewLabel = new JLabel("Aquí podrás ver en tiempo real los votos realizados");
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel.setBounds(285, 43, 531, 37);
-		PanelInicio.add(lblNewLabel);
-
-		lblNewLabel_1 = new JLabel("por los votantes de cada Comunidad y votar tú");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBounds(310, 78, 467, 26);
-		PanelInicio.add(lblNewLabel_1);
-
-		JLabel lblNewLabel_1_1 = new JLabel("mismo a quien tú quieras");
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1.setForeground(Color.WHITE);
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_1_1.setBounds(292, 107, 467, 26);
-		PanelInicio.add(lblNewLabel_1_1);
-
-		JLabel lblFondoInicio = new JLabel("New label");
-		lblFondoInicio.setBounds(0, 0, 1138, 636);
-		lblFondoInicio.setIcon(new ImageIcon("src/Imagenes/ben.jpg"));
-		PanelInicio.add(lblFondoInicio);
-
-		panelInicioSesion = new JPanel();
-		panelInicioSesion.setBounds(0, 0, 1138, 636);
-		contentPane.add(panelInicioSesion);
-		panelInicioSesion.setLayout(null);
-
-		JLabel lblBorde = new JLabel("");
-		lblBorde.setBounds(309, 57, 491, 471);
-		Border border5= BorderFactory.createLineBorder(Color.WHITE, 3);
-		lblBorde.setBorder(border5);
-		panelInicioSesion.add(lblBorde);
-
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Recuerdame en este diapositivo");
-		chckbxNewCheckBox.setForeground(new Color(255, 255, 255));
-		chckbxNewCheckBox.setBackground(new Color(0, 115, 170));
-		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxNewCheckBox.setBounds(408, 313, 286, 23);
-		panelInicioSesion.add(chckbxNewCheckBox);
-
-		lblLogin = new JLabel("LOGIN");
-		lblLogin.setForeground(new Color(255, 255, 255));
-		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		lblLogin.setBounds(488, 103, 136, 40);
-		panelInicioSesion.add(lblLogin);
-
-		JLabel lblNombre = new JLabel("Username");
-		lblNombre.setForeground(new Color(255, 255, 255));
-		lblNombre.setBounds(398, 213, 96, 31);
-		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		panelInicioSesion.add(lblNombre);
-
-		fieldNombre = new JTextField();
-		fieldNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		fieldNombre.setBounds(584, 213, 145, 31);
-		fieldNombre.setColumns(10);
-		fieldNombre.setToolTipText("Introduce tu nombre");
-		panelInicioSesion.add(fieldNombre);
-
-		JLabel lblContrasea = new JLabel("Año nacimiento");
-		lblContrasea.setForeground(new Color(255, 255, 255));
-		lblContrasea.setBounds(355, 254, 183, 31);
-		lblContrasea.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		panelInicioSesion.add(lblContrasea);
-
-		continuar = new JButton("INICIAR SESION");
-		continuar.setBackground(new Color(189, 219, 233));
-		continuar.setBounds(453, 432, 202, 46);
-		continuar.setFont(new Font("Tahoma", Font.BOLD, 16));
-		panelInicioSesion.add(continuar);
-
-		comboBox = new JComboBox();
-		comboBox.setBounds(584, 254, 145, 31);
-		panelInicioSesion.add(comboBox);
-
-		JLabel lblErrorLogin = new JLabel("");
-		lblErrorLogin.setBounds(603, 425, 191, 23);
-		lblErrorLogin.setForeground(new Color(128, 64, 64));
-		panelInicioSesion.add(lblErrorLogin);
-
-		lblFondo = new JLabel("");
-		lblFondo.setBounds(0, 0, 1128, 626);
-		panelInicioSesion.add(lblFondo);
-		lblFondo.setIcon(new ImageIcon("src/Imagenes/fondo.jpg"));
 
 		panelResultados = new JPanel();
 		panelResultados.setBounds(0, 0, 1138, 636);
@@ -234,8 +101,12 @@ public class Vista extends JFrame {
 
 		lblNewLabel_5 = new JLabel("");
 		lblNewLabel_5.setBounds(48, 140, 1035, 455);
-		Border border3 = BorderFactory.createLineBorder(Color.WHITE, 2);
-		lblNewLabel_5.setBorder(border3);
+		Border border8 = BorderFactory.createLineBorder(Color.WHITE, 2);
+		
+				 comboFiltro = new JComboBox();
+				comboFiltro.setBounds(830, 93, 115, 26);
+				panelResultados.add(comboFiltro);
+		lblNewLabel_5.setBorder(border8);
 		panelResultados.add(lblNewLabel_5);
 
 		btnRangoEdad = new JButton("Rango Edad");
@@ -244,11 +115,15 @@ public class Vista extends JFrame {
 		panelResultados.add(btnRangoEdad);
 
 		btnComunidad = new JButton("Comunidad");
+		btnComunidad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnComunidad.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnComunidad.setBounds(496, 85, 121, 34);
 		panelResultados.add(btnComunidad);
 
-		JButton btnGenerales = new JButton("Generales");
+		 btnGenerales = new JButton("Generales");
 		btnGenerales.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnGenerales.setBounds(338, 85, 115, 34);
 		panelResultados.add(btnGenerales);
@@ -414,6 +289,142 @@ public class Vista extends JFrame {
 		lblFondoFinal.setBounds(0, 0, 1138, 636);
 		lblFondoFinal.setIcon(new ImageIcon("src/Imagenes/fondo2.jpg"));
 		panelResultados.add(lblFondoFinal);
+
+		panelProceso = new JPanel();
+		panelProceso.setBackground(new Color(22, 20, 28));
+		panelProceso.setBounds(0, 0, 1138, 636);
+		contentPane.add(panelProceso);
+		panelProceso.setLayout(null);
+
+		lblLoading = new JLabel("");
+		lblLoading.setBounds(355, 104, 532, 470);
+		panelProceso.add(lblLoading);
+		lblLoading.setIcon(new ImageIcon("src/Imagenes/loading2.gif"));
+
+		lblTimer = new JLabel("5");
+		lblTimer.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblTimer.setForeground(new Color(255, 255, 255));
+		lblTimer.setBounds(760, 24, 189, 49);
+		panelProceso.add(lblTimer);
+
+		lblNewLabel_4 = new JLabel("Procesando Las Votaciones:");
+		lblNewLabel_4.setForeground(new Color(255, 255, 255));
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblNewLabel_4.setBounds(373, 24, 344, 49);
+		panelProceso.add(lblNewLabel_4);
+
+		JProgressBar progressBar = new JProgressBar();
+		progressBar.setValue(20);
+		progressBar.setBounds(499, 584, 146, 21);
+		panelProceso.add(progressBar);
+
+		PanelInicio = new JPanel();
+		PanelInicio.setBackground(new Color(0, 0, 0));
+		PanelInicio.setBounds(0, 0, 1138, 636);
+		contentPane.add(PanelInicio);
+		PanelInicio.setLayout(null);
+
+		lblBorde3 = new JLabel("");
+		lblBorde3.setBounds(255, 43, 562, 106);
+		Border border4 = BorderFactory.createLineBorder(Color.WHITE, 3);
+		lblBorde3.setBorder(border4);
+		PanelInicio.add(lblBorde3);
+
+		btnEmpezar = new JButton("ENTRAR");
+		btnEmpezar.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnEmpezar.setBounds(431, 520, 214, 64);
+		PanelInicio.add(btnEmpezar);
+
+		lblNewLabel = new JLabel("Aquí podrás ver en tiempo real los votos realizados");
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel.setBounds(285, 43, 531, 37);
+		PanelInicio.add(lblNewLabel);
+
+		lblNewLabel_1 = new JLabel("por los votantes de cada Comunidad y votar tú");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setBounds(310, 78, 467, 26);
+		PanelInicio.add(lblNewLabel_1);
+
+		JLabel lblNewLabel_1_1 = new JLabel("mismo a quien tú quieras");
+		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_1.setForeground(Color.WHITE);
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_1_1.setBounds(292, 107, 467, 26);
+		PanelInicio.add(lblNewLabel_1_1);
+
+		JLabel lblFondoInicio = new JLabel("New label");
+		lblFondoInicio.setBounds(0, 0, 1138, 636);
+		lblFondoInicio.setIcon(new ImageIcon("src/Imagenes/ben.jpg"));
+		PanelInicio.add(lblFondoInicio);
+
+		panelInicioSesion = new JPanel();
+		panelInicioSesion.setBounds(0, 0, 1138, 636);
+		contentPane.add(panelInicioSesion);
+		panelInicioSesion.setLayout(null);
+
+		JLabel lblBorde = new JLabel("");
+		lblBorde.setBounds(309, 57, 491, 471);
+		Border border5 = BorderFactory.createLineBorder(Color.WHITE, 3);
+		lblBorde.setBorder(border5);
+		panelInicioSesion.add(lblBorde);
+
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Recuerdame en este diapositivo");
+		chckbxNewCheckBox.setForeground(new Color(255, 255, 255));
+		chckbxNewCheckBox.setBackground(new Color(0, 115, 170));
+		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chckbxNewCheckBox.setBounds(408, 313, 286, 23);
+		panelInicioSesion.add(chckbxNewCheckBox);
+
+		lblLogin = new JLabel("LOGIN");
+		lblLogin.setForeground(new Color(255, 255, 255));
+		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		lblLogin.setBounds(488, 103, 136, 40);
+		panelInicioSesion.add(lblLogin);
+
+		JLabel lblNombre = new JLabel("Username");
+		lblNombre.setForeground(new Color(255, 255, 255));
+		lblNombre.setBounds(398, 213, 96, 31);
+		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		panelInicioSesion.add(lblNombre);
+
+		fieldNombre = new JTextField();
+		fieldNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		fieldNombre.setBounds(584, 213, 145, 31);
+		fieldNombre.setColumns(10);
+		fieldNombre.setToolTipText("Introduce tu nombre");
+		panelInicioSesion.add(fieldNombre);
+
+		JLabel lblContrasea = new JLabel("Año nacimiento");
+		lblContrasea.setForeground(new Color(255, 255, 255));
+		lblContrasea.setBounds(355, 254, 183, 31);
+		lblContrasea.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		panelInicioSesion.add(lblContrasea);
+
+		continuar = new JButton("INICIAR SESION");
+		continuar.setBackground(new Color(189, 219, 233));
+		continuar.setBounds(453, 432, 202, 46);
+		continuar.setFont(new Font("Tahoma", Font.BOLD, 16));
+		panelInicioSesion.add(continuar);
+
+		comboBox = new JComboBox();
+		comboBox.setBounds(584, 254, 145, 31);
+		panelInicioSesion.add(comboBox);
+
+		JLabel lblErrorLogin = new JLabel("");
+		lblErrorLogin.setBounds(603, 425, 191, 23);
+		lblErrorLogin.setForeground(new Color(128, 64, 64));
+		panelInicioSesion.add(lblErrorLogin);
+
+		lblFondo = new JLabel("");
+		lblFondo.setBounds(0, 0, 1128, 626);
+		panelInicioSesion.add(lblFondo);
+		lblFondo.setIcon(new ImageIcon("src/Imagenes/fondo.jpg"));
+		Border border3 = BorderFactory.createLineBorder(Color.WHITE, 2);
 		Border border2 = BorderFactory.createLineBorder(Color.WHITE, 2);
 
 		panelComunidades = new JPanel();

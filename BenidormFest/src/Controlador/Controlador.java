@@ -2,6 +2,8 @@ package Controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -24,7 +26,7 @@ import Modelo.Artista;
 import Modelo.Ciudadano;
 import Vista.Vista;
 
-public class Controlador implements ActionListener {
+public class Controlador implements ActionListener, MouseListener {
 
 	public Vista vista = new Vista();
 
@@ -41,8 +43,9 @@ public class Controlador implements ActionListener {
 	
 	public int numero = 5;
 	public int numero2 = 0;
-	 int count = 20;
+	public int count = 20;
 	
+	public int selector = 0;
 	
 	public ArrayList<Artista> artistas = new ArrayList<Artista>();
 
@@ -88,12 +91,17 @@ public class Controlador implements ActionListener {
 		vista.progressBar.setMinimum(0);
 		vista. progressBar.setMaximum(100);
 		
+		vista.btnComunidad.addActionListener(this);
+		vista.btnGenerales.addActionListener(this);
+		
 		llenarComboBox();
 		vista.panelInicioSesion.setVisible(false);
 		vista.panelComunidades.setVisible(false);
 		vista.panelArtistas.setVisible(false);
 		vista.panelProceso.setVisible(false);
 		vista.panelResultados.setVisible(false);
+		
+		vista.comboFiltro.setVisible(false);
 
 		conexion = crearConexion();
 
@@ -110,6 +118,8 @@ public class Controlador implements ActionListener {
 		artistas.add(new Artista("Marc", "src/Imagenes/marc.png"));
 		artistas.add(new Artista("Alba", "src/Imagenes/alba.png"));
 		artistas.add(new Artista("Julio", "src/Imagenes/julio.png"));
+		
+		vista.comboFiltro.addActionListener(this);
 
 		// recuperamos los arrays de los habitantes y sus rangos
 		habitantesAndalucia = recuperarHabitantes("Andalucia", conexion);
@@ -320,12 +330,119 @@ public class Controlador implements ActionListener {
             }
             }
 		
-		
+		if(e.getSource() == vista.btnComunidad) {
+			selector=1;
+			if(selector==0) {
+				mostrarResultadosGenerales();
+				}else if(selector == 1) {
+					vista.comboFiltro.setVisible(true);
+					vista.comboFiltro.removeAllItems();
+					llenarFiltrosComunidad();
+
+				}
+		}
+		if(e.getSource() == vista.comboFiltro) {
+String comunidad;
+			try {
+				 comunidad = vista.comboFiltro.getSelectedItem().toString();
+			if(comunidad.equals("Andalucia")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosAndaluces).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Aragon")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosAragoneses).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Asturias")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosAsturianos).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Baleares")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosBaleares).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Canarias")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCanarios).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Cantabria")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCantabricos).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Castilla y Leon")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCYL).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Castilla-La Mancha")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCLM).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Cataluña")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCatalanes).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Valencia")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosValencianos).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Extremadura")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosExtremeños).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Galicia")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosGallegos).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Madrid")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosMadrileños).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Murcia")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosMurcianos).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Navarra")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosNavarra).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Pais Vasco")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosVascos).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("La Rioja")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosRioja).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Ceuta")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosCeuta).reversed());
+				mostrarResultadosGenerales();
+			} if(comunidad.equals("Melilla")) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosMelilla).reversed());
+				mostrarResultadosGenerales();
+			}
+			}catch(NullPointerException w) {
+				comunidad = "";
+			}
+		}
+		if(e.getSource()==vista.btnGenerales) {
+			selector = 0;
+			if(selector == 0) {
+				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosTotales).reversed());
+				mostrarResultadosGenerales();
+				vista.comboFiltro.removeAllItems();
+				vista.comboFiltro.setVisible(false);
+			}
+		}
 		
 		
 		
 		
 	}// end action listener
+	
+	public void llenarFiltrosComunidad() {
+		vista.comboFiltro.addItem("Andalucia");
+		vista.comboFiltro.addItem("Aragon");
+		vista.comboFiltro.addItem("Asturias");
+		vista.comboFiltro.addItem("Baleares");
+		vista.comboFiltro.addItem("Canarias");
+		vista.comboFiltro.addItem("Cantabria");
+		vista.comboFiltro.addItem("Castilla y Leon");
+		vista.comboFiltro.addItem("Castilla-La Mancha");
+		vista.comboFiltro.addItem("Cataluña");
+		vista.comboFiltro.addItem("Valencia");
+		vista.comboFiltro.addItem("Extremadura");
+		vista.comboFiltro.addItem("Galicia");
+		vista.comboFiltro.addItem("Madrid");
+		vista.comboFiltro.addItem("Murcia");
+		vista.comboFiltro.addItem("Navarra");
+		vista.comboFiltro.addItem("Pais Vasco");
+		vista.comboFiltro.addItem("La Rioja");
+		vista.comboFiltro.addItem("Ceuta");
+		vista.comboFiltro.addItem("Melilla");
+	}
 
 	private int contadorTotal(int[] habitantes) {
 		int contador = 0;
@@ -401,7 +518,7 @@ public class Controlador implements ActionListener {
 	}//
 
 	public void llenarComboBox() {
-		int limite = 2023;
+		int limite = 2005;
 		for (int i = limite; i > 1930; i--) {
 			vista.comboBox.addItem(String.valueOf(i));
 		}
@@ -487,13 +604,14 @@ public class Controlador implements ActionListener {
 			Ciudadano vas = new Ciudadano("Pais Vasco", habitantesVascos, artistas);
 			vas.start();
 		}
-		
-		mostrarResultados();
-		
+		if(selector==0) {
+			Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosTotales).reversed());
+		mostrarResultadosGenerales();
+		}
 	}
 	
-	public void mostrarResultados() {
-		Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosTotales).reversed());
+	public void mostrarResultadosGenerales() {
+		
 		vista.nombre1.setText(artistas.get(0).getNombre());
 		vista.foto1.setIcon(new ImageIcon(artistas.get(0).getUrlFoto()));
 		vista.primerPuesto.setIcon(new ImageIcon("src/Imagenes/1.png"));
@@ -537,6 +655,38 @@ public class Controlador implements ActionListener {
 		for(int i = 0; i<artistas.size();i++) {
 			System.out.println(artistas.get(i).toString());
 		}
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		if(e.getClickCount()==1) {
+			
+		}
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }// end controlador
