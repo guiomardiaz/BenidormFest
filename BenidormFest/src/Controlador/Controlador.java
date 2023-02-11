@@ -48,6 +48,7 @@ public class Controlador implements ActionListener, MouseListener {
 	public int selector = 0;
 	
 	public ArrayList<Artista> artistas = new ArrayList<Artista>();
+	public ArrayList<Artista> aux = new ArrayList<Artista>();
 
 	public Controlador(Vista vista) throws IOException, ClassNotFoundException, SQLException,
 			UnsupportedAudioFileException, LineUnavailableException {
@@ -108,16 +109,29 @@ public class Controlador implements ActionListener, MouseListener {
 		System.out.println("Conexion realizada");
 
 		// Creacion de artistas
-		artistas.add(new Artista("Joel", "src/Imagenes/joel.png"));
-		artistas.add(new Artista("Victoria", "src/Imagenes/victoria.png"));
-		artistas.add(new Artista("Thiago", "src/Imagenes/thiago.png"));
-		artistas.add(new Artista("Sarah", "src/Imagenes/sarah.png"));
-		artistas.add(new Artista("Elton", "src/Imagenes/elton.png"));
-		artistas.add(new Artista("Amie", "src/Imagenes/amie.png"));
-		artistas.add(new Artista("Nahid", "src/Imagenes/nahid.png"));
-		artistas.add(new Artista("Marc", "src/Imagenes/marc.png"));
-		artistas.add(new Artista("Alba", "src/Imagenes/alba.png"));
-		artistas.add(new Artista("Julio", "src/Imagenes/julio.png"));
+		aux = recuperarArtistas(conexion);
+		aux.get(0).setUrlFoto("src/Imagenes/joel.png");
+		aux.get(1).setUrlFoto("src/Imagenes/marc.png");
+		aux.get(2).setUrlFoto("src/Imagenes/alba.png");
+		aux.get(3).setUrlFoto("src/Imagenes/thiago.png");
+		aux.get(4).setUrlFoto("src/Imagenes/amie.png");
+		aux.get(5).setUrlFoto("src/Imagenes/sarah.png");
+		aux.get(6).setUrlFoto("src/Imagenes/nahid.png");
+		aux.get(7).setUrlFoto("src/Imagenes/julio.png");
+		aux.get(8).setUrlFoto("src/Imagenes/elton.png");
+		aux.get(9).setUrlFoto("src/Imagenes/victoria.png");
+		
+		//ordenar artistas
+		artistas.add(aux.get(0));
+		artistas.add(aux.get(9));
+		artistas.add(aux.get(3));
+		artistas.add(aux.get(5));
+		artistas.add(aux.get(8));
+		artistas.add(aux.get(4));
+		artistas.add(aux.get(6));
+		artistas.add(aux.get(1));
+		artistas.add(aux.get(2));
+		artistas.add(aux.get(7));
 		
 		vista.comboFiltro.addActionListener(this);
 
@@ -167,6 +181,28 @@ public class Controlador implements ActionListener, MouseListener {
 		System.out.println(votantesAndalucia);
 		System.out.println(votantesAragon);
 
+	}
+
+	private ArrayList<Artista> recuperarArtistas(Connection conexion) {
+		ArrayList<Artista> artistas = new ArrayList<Artista>();
+		String sentencia = "SELECT DNI, NOMBRE, APELLIDOS, TELEFONO, NOMBRE_CANCION, VOTOS FROM CANTANTES";
+		
+		Statement statement = null;
+		ResultSet resultSet = null;
+		try {
+			statement = conexion.createStatement();
+			resultSet = statement.executeQuery(sentencia);
+			while (resultSet.next()) {
+				Artista artista = new Artista();
+				artista.setNombre(resultSet.getString("NOMBRE"));
+				artista.setNombreCancion(resultSet.getString("NOMBRE_CANCION"));
+				artistas.add(artista);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return artistas;
 	}
 
 	@Override

@@ -1,7 +1,9 @@
 package Modelo;
 
 public class Artista {
+	String dni;
 	String nombre;
+	String nombreCancion;
 	String urlFoto;
 	int votosTotales;
 	int votosAndaluces, votosAragoneses, votosAsturianos , votosBaleares ,votosCanarios ,
@@ -9,10 +11,9 @@ public class Artista {
 	votosGallegos, votosMadrileños, votosMurcianos, votosNavarra, votosVascos, votosRioja,
 	votosCeuta, votosMelilla;
 	
-	public Artista(String nombre, String urlFoto) {
+	public Artista() {
 		super();
-		this.nombre = nombre;
-		this.urlFoto = urlFoto;
+
 	}
 
 	
@@ -193,6 +194,26 @@ public class Artista {
 	public void setVotosMelilla(int votosMelilla) {
 		this.votosMelilla = votosMelilla;
 	}
+
+	public String getDni() {
+		return dni;
+	}
+
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+
+	public String getNombreCancion() {
+		return nombreCancion;
+	}
+
+
+	public void setNombreCancion(String nombreCancion) {
+		this.nombreCancion = nombreCancion;
+	}
+
 
 	@Override
 	public String toString() {
