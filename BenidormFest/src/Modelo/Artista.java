@@ -4,6 +4,7 @@ public class Artista {
 	String dni;
 	String nombre;
 	String nombreCancion;
+	String apellidos;
 	String urlFoto;
 	int votosTotales;
 	int votosAndaluces, votosAragoneses, votosAsturianos , votosBaleares ,votosCanarios ,
@@ -15,8 +16,21 @@ public class Artista {
 		super();
 
 	}
+	
 
 	
+	public String getApellidos() {
+		return apellidos;
+	}
+
+
+
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+
+
+
 	public String getUrlFoto() {
 		return urlFoto;
 	}
