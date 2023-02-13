@@ -91,6 +91,7 @@ public class Controlador implements ActionListener {
 		vista.btnVotarSarah.addActionListener(this);
 		vista.btnVotarThiago.addActionListener(this);
 		vista.btnVotarVictoria.addActionListener(this);
+		vista.btnTodo.addActionListener(this);
 
 		this.vista.timer.addActionListener(this);
 		vista.progressBar = new JProgressBar();
@@ -100,6 +101,7 @@ public class Controlador implements ActionListener {
 		vista.btnComunidad.addActionListener(this);
 		vista.btnGenerales.addActionListener(this);
 		vista.btnRangoEdad.addActionListener(this);
+		vista.lblErrorLogin.setVisible(false);
 
 		llenarComboBox();
 		vista.panelInicioSesion.setVisible(false);
@@ -107,6 +109,7 @@ public class Controlador implements ActionListener {
 		vista.panelArtistas.setVisible(false);
 		vista.panelProceso.setVisible(false);
 		vista.panelResultados.setVisible(false);
+		//vista.btnTodo.setVisible(false);
 
 		vista.comboFiltro.setVisible(false);
 
@@ -365,13 +368,16 @@ public class Controlador implements ActionListener {
 				if(!nombresColeccion.contains(vista.fieldNombre.getText().toString())) {
 			vista.panelComunidades.setVisible(true);
 			vista.panelInicioSesion.setVisible(false);
+			vista.lblErrorLogin.setVisible(false);
 			vista.lblErrorLogin.setText("");
 			nombreUsuario = vista.fieldNombre.getText().toString();
 			edadUsuario = Integer.parseInt(vista.comboBox.getSelectedItem().toString());
 				}else {
+					vista.lblErrorLogin.setVisible(true);
 					vista.lblErrorLogin.setText("ESTE USUARIO YA HA VOTADO");
 				}
 			}else {
+				vista.lblErrorLogin.setVisible(true);
 				vista.lblErrorLogin.setText("INTRODUCE UN NOMBRE");
 			}
 		}
@@ -491,6 +497,8 @@ public class Controlador implements ActionListener {
 			if (selector == 0) {
 				mostrarResultadosGenerales();
 			} else if (selector == 1) {
+				vista.panel3primeros.setVisible(false);
+				vista.btnTodo.setVisible(false);
 				vista.comboFiltro.setVisible(true);
 				vista.comboFiltro.removeAllItems();
 				llenarFiltrosComunidad();
@@ -501,9 +509,12 @@ public class Controlador implements ActionListener {
 		if(e.getSource()== vista.btnRangoEdad) {
 			selector =2;
 			if(selector == 2) {
+				vista.panel3primeros.setVisible(false);
+				vista.btnTodo.setVisible(false);
 				vista.comboFiltro.setVisible(true);
 				vista.comboFiltro.removeAllItems();
 				llenarFiltrosEdad();
+				
 			}
 		}
 		
@@ -614,8 +625,13 @@ public class Controlador implements ActionListener {
 				Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosTotales).reversed());
 				mostrarResultadosGenerales();
 				vista.comboFiltro.removeAllItems();
+				vista.panel3primeros.setVisible(true);
 				vista.comboFiltro.setVisible(false);
+				vista.btnTodo.setVisible(true);
 			}
+		}
+		if(e.getSource() == vista.btnTodo) {
+			vista.panel3primeros.setVisible(false);
 		}
 		
 
@@ -819,6 +835,13 @@ public class Controlador implements ActionListener {
 		if (selector == 0) {
 			Collections.sort(artistas, Comparator.comparingInt(Artista::getVotosTotales).reversed());
 			mostrarResultadosGenerales();
+			vista.foto1_1.setIcon(new ImageIcon(artistas.get(0).getUrlFoto()));
+			vista.foto2_1.setIcon(new ImageIcon(artistas.get(1).getUrlFoto()));
+			vista.foto3_1.setIcon(new ImageIcon(artistas.get(2).getUrlFoto()));
+			vista.nombre1_1.setText(artistas.get(0).getNombre());
+			vista.nombre2_1.setText(artistas.get(1).getNombre());
+			vista.nombre3_1.setText(artistas.get(2).getNombre());
+			
 		}
 	}
 
