@@ -91,6 +91,10 @@ public class Vista extends JFrame {
 	 */
 	public Vista() {
 		Border border8 = BorderFactory.createLineBorder(Color.WHITE, 2);
+		Border border5 = BorderFactory.createLineBorder(Color.WHITE, 3);
+		Border border3 = BorderFactory.createLineBorder(Color.WHITE, 2);
+		Border border2 = BorderFactory.createLineBorder(Color.WHITE, 2);
+		Border border = BorderFactory.createLineBorder(Color.WHITE, 2);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1152, 673);
@@ -100,259 +104,382 @@ public class Vista extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
-		panelResultados = new JPanel();
-		panelResultados.setBounds(0, 0, 1138, 636);
-		contentPane.add(panelResultados);
-		panelResultados.setLayout(null);
-
-		lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setBounds(48, 140, 1035, 455);
-		 
-		  btnTodo = new JButton("Mostrar Todo");
-		  btnTodo.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		  btnTodo.setBounds(182, 85, 124, 34);
-		  panelResultados.add(btnTodo);
-
-		 panel3primeros = new JPanel();
-		 panel3primeros.setBackground(new Color(223, 242, 255));
-		panel3primeros.setBounds(48, 140, 1035, 455);
 		
-		panelResultados.add(panel3primeros);
-		panel3primeros.setLayout(null);
-		panel3primeros.setOpaque(true);
-		
-		lblMarco = new JLabel("");
-		lblMarco.setBounds(0, 0, 1035, 455);
-		panel3primeros.add(lblMarco);
-		lblMarco.setIcon(new ImageIcon("src/Imagenes/marco1.png"));
-		
-		foto2_1 = new JLabel("");
-		foto2_1.setBounds(275, 156, 133, 116);
-		panel3primeros.add(foto2_1);
-		
-		nombre2_1 = new JLabel("");
-		nombre2_1.setHorizontalAlignment(SwingConstants.CENTER);
-		nombre2_1.setForeground(Color.BLACK);
-		nombre2_1.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		nombre2_1.setBounds(275, 105, 133, 41);
-		panel3primeros.add(nombre2_1);
-		
-		nombre1_1 = new JLabel("");
-		nombre1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		nombre1_1.setForeground(Color.BLACK);
-		nombre1_1.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		nombre1_1.setBounds(475, 44, 133, 41);
-		panel3primeros.add(nombre1_1);
-		
-		foto1_1 = new JLabel("");
-		foto1_1.setBounds(475, 85, 133, 116);
-		panel3primeros.add(foto1_1);
-		
-		JLabel lblfondo3primeros = new JLabel("");
-		lblfondo3primeros.setVerticalAlignment(SwingConstants.BOTTOM);
-		lblfondo3primeros.setHorizontalAlignment(SwingConstants.CENTER);
-		lblfondo3primeros.setBounds(0, 38, 1035, 455);
-		lblfondo3primeros.setIcon(new ImageIcon("src/Imagenes/podium.png"));
-		panel3primeros.add(lblfondo3primeros);
-		
-		nombre3_1 = new JLabel("");
-		nombre3_1.setHorizontalAlignment(SwingConstants.CENTER);
-		nombre3_1.setForeground(Color.BLACK);
-		nombre3_1.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		nombre3_1.setBounds(648, 139, 133, 41);
-		panel3primeros.add(nombre3_1);
-		
-		foto3_1 = new JLabel("");
-		foto3_1.setBounds(648, 177, 133, 116);
-		panel3primeros.add(foto3_1);
+				panelResultados = new JPanel();
+				panelResultados.setBounds(0, 0, 1138, 636);
+				contentPane.add(panelResultados);
+				panelResultados.setLayout(null);
+				
+						lblNewLabel_5 = new JLabel("");
+						lblNewLabel_5.setBounds(48, 140, 1035, 455);
+						
+								btnTodo = new JButton("Mostrar Todo");
+								btnTodo.setFont(new Font("Tahoma", Font.PLAIN, 12));
+								btnTodo.setBounds(182, 85, 124, 34);
+								panelResultados.add(btnTodo);
+								
+										panel3primeros = new JPanel();
+										panel3primeros.setBackground(new Color(223, 242, 255));
+										panel3primeros.setBounds(48, 140, 1035, 455);
+										
+												panelResultados.add(panel3primeros);
+												panel3primeros.setLayout(null);
+												panel3primeros.setOpaque(true);
+												
+														lblMarco = new JLabel("");
+														lblMarco.setBounds(0, 0, 1035, 455);
+														panel3primeros.add(lblMarco);
+														lblMarco.setIcon(new ImageIcon("src/Imagenes/marco1.png"));
+														
+																foto2_1 = new JLabel("");
+																foto2_1.setBounds(275, 156, 133, 116);
+																panel3primeros.add(foto2_1);
+																
+																		nombre2_1 = new JLabel("");
+																		nombre2_1.setHorizontalAlignment(SwingConstants.CENTER);
+																		nombre2_1.setForeground(Color.BLACK);
+																		nombre2_1.setFont(new Font("Tahoma", Font.PLAIN, 19));
+																		nombre2_1.setBounds(255, 125, 133, 41);
+																		panel3primeros.add(nombre2_1);
+																		
+																				nombre1_1 = new JLabel("");
+																				nombre1_1.setHorizontalAlignment(SwingConstants.CENTER);
+																				nombre1_1.setForeground(Color.BLACK);
+																				nombre1_1.setFont(new Font("Tahoma", Font.PLAIN, 19));
+																				nombre1_1.setBounds(448, 51, 133, 41);
+																				panel3primeros.add(nombre1_1);
+																				
+																						foto1_1 = new JLabel("");
+																						foto1_1.setBounds(475, 85, 133, 116);
+																						panel3primeros.add(foto1_1);
+																						
+																								JLabel lblfondo3primeros = new JLabel("");
+																								lblfondo3primeros.setVerticalAlignment(SwingConstants.BOTTOM);
+																								lblfondo3primeros.setHorizontalAlignment(SwingConstants.CENTER);
+																								lblfondo3primeros.setBounds(0, 38, 1035, 455);
+																								lblfondo3primeros.setIcon(new ImageIcon("src/Imagenes/podium.png"));
+																								panel3primeros.add(lblfondo3primeros);
+																								
+																										nombre3_1 = new JLabel("");
+																										nombre3_1.setHorizontalAlignment(SwingConstants.CENTER);
+																										nombre3_1.setForeground(Color.BLACK);
+																										nombre3_1.setFont(new Font("Tahoma", Font.PLAIN, 19));
+																										nombre3_1.setBounds(634, 145, 133, 41);
+																										panel3primeros.add(nombre3_1);
+																										
+																												foto3_1 = new JLabel("");
+																												foto3_1.setBounds(648, 177, 133, 116);
+																												panel3primeros.add(foto3_1);
+																												
+																														comboFiltro = new JComboBox();
+																														comboFiltro.setBounds(830, 85, 146, 34);
+																														panelResultados.add(comboFiltro);
+																														lblNewLabel_5.setBorder(border8);
+																														panelResultados.add(lblNewLabel_5);
+																														
+																																btnRangoEdad = new JButton("Rango Edad");
+																																btnRangoEdad.setFont(new Font("Tahoma", Font.PLAIN, 12));
+																																btnRangoEdad.setBounds(652, 85, 121, 34);
+																																panelResultados.add(btnRangoEdad);
+																																
+																																		btnComunidad = new JButton("Comunidad");
+																																		btnComunidad.addActionListener(new ActionListener() {
+																																			public void actionPerformed(ActionEvent e) {
+																																			}
+																																		});
+																																		btnComunidad.setFont(new Font("Tahoma", Font.PLAIN, 12));
+																																		btnComunidad.setBounds(496, 85, 121, 34);
+																																		panelResultados.add(btnComunidad);
+																																		
+																																				btnGenerales = new JButton("Generales");
+																																				btnGenerales.setFont(new Font("Tahoma", Font.PLAIN, 12));
+																																				btnGenerales.setBounds(338, 85, 115, 34);
+																																				panelResultados.add(btnGenerales);
+																																				
+																																						lblNewLabel_2 = new JLabel("RESULTADOS DE LAS VOTACIONES");
+																																						lblNewLabel_2.setForeground(new Color(255, 255, 255));
+																																						lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+																																						lblNewLabel_2.setFont(new Font("Yu Gothic UI", Font.PLAIN, 28));
+																																						lblNewLabel_2.setBounds(172, 21, 773, 54);
+																																						panelResultados.add(lblNewLabel_2);
+																																						
+																																								foto1 = new JLabel("");
+																																								foto1.setBounds(85, 209, 133, 116);
+																																								panelResultados.add(foto1);
+																																								
+																																										nombre1 = new JLabel("");
+																																										nombre1.setForeground(new Color(255, 255, 255));
+																																										nombre1.setFont(new Font("Tahoma", Font.PLAIN, 19));
+																																										nombre1.setBounds(133, 158, 85, 41);
+																																										panelResultados.add(nombre1);
+																																										
+																																												primerPuesto = new JLabel("");
+																																												primerPuesto.setBounds(78, 158, 45, 41);
+																																												primerPuesto.setIcon(new ImageIcon("src/Imagenes/1.png"));
+																																												panelResultados.add(primerPuesto);
+																																												
+																																														segundoPuesto = new JLabel("");
+																																														segundoPuesto.setBounds(279, 158, 45, 41);
+																																														primerPuesto.setIcon(new ImageIcon("src/Imagenes/2.png"));
+																																														panelResultados.add(segundoPuesto);
+																																														
+																																																nombre2 = new JLabel("");
+																																																nombre2.setForeground(new Color(255, 255, 255));
+																																																nombre2.setFont(new Font("Tahoma", Font.PLAIN, 19));
+																																																nombre2.setBounds(338, 158, 85, 41);
+																																																panelResultados.add(nombre2);
+																																																
+																																																		foto2 = new JLabel("");
+																																																		foto2.setBounds(290, 209, 133, 116);
+																																																		panelResultados.add(foto2);
+																																																		
+																																																				tercerPuesto = new JLabel("");
+																																																				tercerPuesto.setBounds(465, 158, 45, 41);
+																																																				primerPuesto.setIcon(new ImageIcon("src/Imagenes/3.png"));
+																																																				panelResultados.add(tercerPuesto);
+																																																				
+																																																						nombre3 = new JLabel("");
+																																																						nombre3.setForeground(new Color(255, 255, 255));
+																																																						nombre3.setFont(new Font("Tahoma", Font.PLAIN, 19));
+																																																						nombre3.setBounds(526, 158, 85, 41);
+																																																						panelResultados.add(nombre3);
+																																																						
+																																																								foto3 = new JLabel("");
+																																																								foto3.setBounds(478, 209, 133, 116);
+																																																								panelResultados.add(foto3);
+																																																								
+																																																										cuartoPuesto = new JLabel("");
+																																																										cuartoPuesto.setBounds(682, 158, 45, 41);
+																																																										primerPuesto.setIcon(new ImageIcon("src/Imagenes/4.png"));
+																																																										panelResultados.add(cuartoPuesto);
+																																																										
+																																																												nombre4 = new JLabel("");
+																																																												nombre4.setForeground(new Color(255, 255, 255));
+																																																												nombre4.setFont(new Font("Tahoma", Font.PLAIN, 19));
+																																																												nombre4.setBounds(730, 158, 85, 41);
+																																																												panelResultados.add(nombre4);
+																																																												
+																																																														foto4 = new JLabel("");
+																																																														foto4.setBounds(682, 209, 133, 116);
+																																																														panelResultados.add(foto4);
+																																																														
+																																																																nombre5 = new JLabel("");
+																																																																nombre5.setForeground(new Color(255, 255, 255));
+																																																																nombre5.setFont(new Font("Tahoma", Font.PLAIN, 19));
+																																																																nombre5.setBounds(948, 158, 85, 41);
+																																																																panelResultados.add(nombre5);
+																																																																
+																																																																		quintoPuesto = new JLabel("");
+																																																																		quintoPuesto.setBounds(900, 158, 45, 41);
+																																																																		primerPuesto.setIcon(new ImageIcon("src/Imagenes/5.png"));
+																																																																		panelResultados.add(quintoPuesto);
+																																																																		
+																																																																				foto5 = new JLabel("");
+																																																																				foto5.setBounds(900, 209, 133, 116);
+																																																																				panelResultados.add(foto5);
+																																																																				
+																																																																						sextoPuesto = new JLabel("");
+																																																																						sextoPuesto.setBounds(85, 388, 45, 41);
+																																																																						primerPuesto.setIcon(new ImageIcon("src/Imagenes/6.png"));
+																																																																						panelResultados.add(sextoPuesto);
+																																																																						
+																																																																								nombre6 = new JLabel("");
+																																																																								nombre6.setForeground(new Color(255, 255, 255));
+																																																																								nombre6.setFont(new Font("Tahoma", Font.PLAIN, 19));
+																																																																								nombre6.setBounds(133, 388, 85, 41);
+																																																																								panelResultados.add(nombre6);
+																																																																								
+																																																																										foto6 = new JLabel("");
+																																																																										foto6.setBounds(85, 439, 133, 116);
+																																																																										panelResultados.add(foto6);
+																																																																										
+																																																																												septimoPuesto = new JLabel("");
+																																																																												septimoPuesto.setBounds(290, 388, 45, 41);
+																																																																												primerPuesto.setIcon(new ImageIcon("src/Imagenes/7.png"));
+																																																																												panelResultados.add(septimoPuesto);
+																																																																												
+																																																																														foto7 = new JLabel("");
+																																																																														foto7.setBounds(290, 439, 133, 116);
+																																																																														panelResultados.add(foto7);
+																																																																														
+																																																																																nombre7 = new JLabel("");
+																																																																																nombre7.setForeground(new Color(255, 255, 255));
+																																																																																nombre7.setFont(new Font("Tahoma", Font.PLAIN, 19));
+																																																																																nombre7.setBounds(338, 388, 85, 41);
+																																																																																panelResultados.add(nombre7);
+																																																																																
+																																																																																		octavoPuesto = new JLabel("");
+																																																																																		octavoPuesto.setBounds(478, 388, 45, 41);
+																																																																																		primerPuesto.setIcon(new ImageIcon("src/Imagenes/8.png"));
+																																																																																		panelResultados.add(octavoPuesto);
+																																																																																		
+																																																																																				nombre8 = new JLabel("");
+																																																																																				nombre8.setForeground(new Color(255, 255, 255));
+																																																																																				nombre8.setFont(new Font("Tahoma", Font.PLAIN, 19));
+																																																																																				nombre8.setBounds(526, 388, 85, 41);
+																																																																																				panelResultados.add(nombre8);
+																																																																																				
+																																																																																						foto8 = new JLabel("");
+																																																																																						foto8.setBounds(478, 439, 133, 116);
+																																																																																						panelResultados.add(foto8);
+																																																																																						
+																																																																																								novenoPuesto = new JLabel("");
+																																																																																								novenoPuesto.setBounds(682, 388, 45, 41);
+																																																																																								primerPuesto.setIcon(new ImageIcon("src/Imagenes/9.png"));
+																																																																																								panelResultados.add(novenoPuesto);
+																																																																																								
+																																																																																										nombre9 = new JLabel("");
+																																																																																										nombre9.setForeground(new Color(255, 255, 255));
+																																																																																										nombre9.setFont(new Font("Tahoma", Font.PLAIN, 19));
+																																																																																										nombre9.setBounds(730, 388, 85, 41);
+																																																																																										panelResultados.add(nombre9);
+																																																																																										
+																																																																																												foto9 = new JLabel("");
+																																																																																												foto9.setBounds(682, 439, 133, 116);
+																																																																																												panelResultados.add(foto9);
+																																																																																												
+																																																																																														nombre10 = new JLabel("");
+																																																																																														nombre10.setForeground(new Color(255, 255, 255));
+																																																																																														nombre10.setFont(new Font("Tahoma", Font.PLAIN, 19));
+																																																																																														nombre10.setBounds(948, 388, 85, 41);
+																																																																																														panelResultados.add(nombre10);
+																																																																																														
+																																																																																																decimoPuesto = new JLabel("");
+																																																																																																decimoPuesto.setBounds(900, 388, 45, 41);
+																																																																																																primerPuesto.setIcon(new ImageIcon("src/Imagenes/10.png"));
+																																																																																																panelResultados.add(decimoPuesto);
+																																																																																																
+																																																																																																		foto10 = new JLabel("");
+																																																																																																		foto10.setBounds(900, 439, 133, 116);
+																																																																																																		panelResultados.add(foto10);
+																																																																																																		
+																																																																																																				lblFondoFinal = new JLabel("");
+																																																																																																				lblFondoFinal.setBounds(0, 0, 1138, 636);
+																																																																																																				lblFondoFinal.setIcon(new ImageIcon("src/Imagenes/fondo2.jpg"));
+																																																																																																				panelResultados.add(lblFondoFinal);
 
-		comboFiltro = new JComboBox();
-		comboFiltro.setBounds(830, 85, 146, 34);
-		panelResultados.add(comboFiltro);
-		lblNewLabel_5.setBorder(border8);
-		panelResultados.add(lblNewLabel_5);
+		panelComunidades = new JPanel();
+		panelComunidades.setBounds(0, 0, 1138, 636);
+		contentPane.add(panelComunidades);
+		panelComunidades.setLayout(null);
 
-		btnRangoEdad = new JButton("Rango Edad");
-		btnRangoEdad.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnRangoEdad.setBounds(652, 85, 121, 34);
-		panelResultados.add(btnRangoEdad);
+		lblBorde2 = new JLabel("");
+		lblBorde2.setBorder(border);
+		lblBorde2.setBounds(209, 24, 768, 570);
 
-		btnComunidad = new JButton("Comunidad");
-		btnComunidad.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnComunidad.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnComunidad.setBounds(496, 85, 121, 34);
-		panelResultados.add(btnComunidad);
+		panelComunidades.add(lblBorde2);
 
-		btnGenerales = new JButton("Generales");
-		btnGenerales.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnGenerales.setBounds(338, 85, 115, 34);
-		panelResultados.add(btnGenerales);
+		lblNewLabel_3 = new JLabel("Introduce Tu Comunidad Autónoma A Traves De Los Botones");
+		lblNewLabel_3.setForeground(new Color(255, 255, 255));
+		lblNewLabel_3.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 20));
+		lblNewLabel_3.setBounds(317, 30, 586, 27);
+		panelComunidades.add(lblNewLabel_3);
 
-		lblNewLabel_2 = new JLabel("RESULTADOS DE LAS VOTACIONES");
-		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setFont(new Font("Yu Gothic UI", Font.PLAIN, 28));
-		lblNewLabel_2.setBounds(172, 21, 773, 54);
-		panelResultados.add(lblNewLabel_2);
+		rdbtnMelilla = new JRadioButton("MELILLA");
+		rdbtnMelilla.setBackground(new Color(223, 242, 255));
+		rdbtnMelilla.setBounds(539, 502, 78, 15);
+		panelComunidades.add(rdbtnMelilla);
 
-		foto1 = new JLabel("");
-		foto1.setBounds(85, 209, 133, 116);
-		panelResultados.add(foto1);
+		rdbtnCeuta = new JRadioButton("CEUTA");
+		rdbtnCeuta.setBackground(new Color(223, 242, 255));
+		rdbtnCeuta.setBounds(502, 472, 78, 15);
+		panelComunidades.add(rdbtnCeuta);
 
-		nombre1 = new JLabel("");
-		nombre1.setForeground(new Color(255, 255, 255));
-		nombre1.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		nombre1.setBounds(133, 158, 85, 41);
-		panelResultados.add(nombre1);
+		rdbtnCanarias = new JRadioButton("");
+		rdbtnCanarias.setBackground(new Color(1, 45, 92));
+		rdbtnCanarias.setBounds(774, 450, 21, 15);
+		panelComunidades.add(rdbtnCanarias);
 
-		primerPuesto = new JLabel("");
-		primerPuesto.setBounds(78, 158, 45, 41);
-		primerPuesto.setIcon(new ImageIcon("src/Imagenes/1.png"));
-		panelResultados.add(primerPuesto);
+		rdbtnBaleares = new JRadioButton("");
+		rdbtnBaleares.setBackground(new Color(232, 227, 187));
+		rdbtnBaleares.setBounds(804, 283, 21, 15);
+		panelComunidades.add(rdbtnBaleares);
 
-		segundoPuesto = new JLabel("");
-		segundoPuesto.setBounds(279, 158, 45, 41);
-		primerPuesto.setIcon(new ImageIcon("src/Imagenes/2.png"));
-		panelResultados.add(segundoPuesto);
+		rdbtnLaRioja = new JRadioButton("");
+		rdbtnLaRioja.setBackground(new Color(235, 188, 233));
+		rdbtnLaRioja.setBounds(596, 160, 21, 21);
+		panelComunidades.add(rdbtnLaRioja);
 
-		nombre2 = new JLabel("");
-		nombre2.setForeground(new Color(255, 255, 255));
-		nombre2.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		nombre2.setBounds(338, 158, 85, 41);
-		panelResultados.add(nombre2);
+		rdbtnMurcia = new JRadioButton("");
+		rdbtnMurcia.setBackground(new Color(202, 233, 188));
+		rdbtnMurcia.setBounds(641, 364, 21, 21);
+		panelComunidades.add(rdbtnMurcia);
 
-		foto2 = new JLabel("");
-		foto2.setBounds(290, 209, 133, 116);
-		panelResultados.add(foto2);
+		rdbtnAndalucia = new JRadioButton("");
+		rdbtnAndalucia.setBackground(new Color(232, 188, 188));
+		rdbtnAndalucia.setBounds(539, 380, 21, 21);
+		panelComunidades.add(rdbtnAndalucia);
 
-		tercerPuesto = new JLabel("");
-		tercerPuesto.setBounds(465, 158, 45, 41);
-		primerPuesto.setIcon(new ImageIcon("src/Imagenes/3.png"));
-		panelResultados.add(tercerPuesto);
+		rdbtnValencia = new JRadioButton("");
+		rdbtnValencia.setBackground(new Color(232, 188, 188));
+		rdbtnValencia.setBounds(673, 304, 21, 21);
+		panelComunidades.add(rdbtnValencia);
 
-		nombre3 = new JLabel("");
-		nombre3.setForeground(new Color(255, 255, 255));
-		nombre3.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		nombre3.setBounds(526, 158, 85, 41);
-		panelResultados.add(nombre3);
+		rdbtnExtremadura = new JRadioButton("");
+		rdbtnExtremadura.setBackground(new Color(197, 188, 235));
+		rdbtnExtremadura.setBounds(474, 303, 21, 21);
+		panelComunidades.add(rdbtnExtremadura);
 
-		foto3 = new JLabel("");
-		foto3.setBounds(478, 209, 133, 116);
-		panelResultados.add(foto3);
+		rdbtnCLM = new JRadioButton("");
+		rdbtnCLM.setBackground(new Color(235, 188, 233));
+		rdbtnCLM.setBounds(596, 303, 21, 21);
+		panelComunidades.add(rdbtnCLM);
 
-		cuartoPuesto = new JLabel("");
-		cuartoPuesto.setBounds(682, 158, 45, 41);
-		primerPuesto.setIcon(new ImageIcon("src/Imagenes/4.png"));
-		panelResultados.add(cuartoPuesto);
+		rdbtnMadrid = new JRadioButton("");
+		rdbtnMadrid.setBackground(new Color(197, 188, 235));
+		rdbtnMadrid.setBounds(559, 248, 21, 21);
+		panelComunidades.add(rdbtnMadrid);
 
-		nombre4 = new JLabel("");
-		nombre4.setForeground(new Color(255, 255, 255));
-		nombre4.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		nombre4.setBounds(730, 158, 85, 41);
-		panelResultados.add(nombre4);
+		rdbtnCYL = new JRadioButton("");
+		rdbtnCYL.setBackground(new Color(189, 219, 233));
+		rdbtnCYL.setBounds(508, 180, 21, 21);
+		panelComunidades.add(rdbtnCYL);
 
-		foto4 = new JLabel("");
-		foto4.setBounds(682, 209, 133, 116);
-		panelResultados.add(foto4);
+		rdbtnCatalunya = new JRadioButton("");
+		rdbtnCatalunya.setBackground(new Color(232, 227, 187));
+		rdbtnCatalunya.setBounds(752, 191, 21, 21);
+		panelComunidades.add(rdbtnCatalunya);
 
-		nombre5 = new JLabel("");
-		nombre5.setForeground(new Color(255, 255, 255));
-		nombre5.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		nombre5.setBounds(948, 158, 85, 41);
-		panelResultados.add(nombre5);
+		rdbtnAragon = new JRadioButton("");
+		rdbtnAragon.setBackground(new Color(202, 233, 188));
+		rdbtnAragon.setBounds(673, 193, 21, 21);
+		panelComunidades.add(rdbtnAragon);
 
-		quintoPuesto = new JLabel("");
-		quintoPuesto.setBounds(900, 158, 45, 41);
-		primerPuesto.setIcon(new ImageIcon("src/Imagenes/5.png"));
-		panelResultados.add(quintoPuesto);
+		rdbtnNavarra = new JRadioButton("");
+		rdbtnNavarra.setBackground(new Color(232, 188, 188));
+		rdbtnNavarra.setBounds(629, 146, 21, 21);
+		panelComunidades.add(rdbtnNavarra);
 
-		foto5 = new JLabel("");
-		foto5.setBounds(900, 209, 133, 116);
-		panelResultados.add(foto5);
+		rdbtnPaisVasco = new JRadioButton("");
+		rdbtnPaisVasco.setBackground(new Color(232, 227, 187));
+		rdbtnPaisVasco.setBounds(596, 125, 21, 21);
+		panelComunidades.add(rdbtnPaisVasco);
 
-		sextoPuesto = new JLabel("");
-		sextoPuesto.setBounds(85, 388, 45, 41);
-		primerPuesto.setIcon(new ImageIcon("src/Imagenes/6.png"));
-		panelResultados.add(sextoPuesto);
+		rdbtnGalicia = new JRadioButton("");
+		rdbtnGalicia.setBackground(new Color(232, 188, 188));
+		rdbtnGalicia.setBounds(397, 135, 28, 21);
+		panelComunidades.add(rdbtnGalicia);
 
-		nombre6 = new JLabel("");
-		nombre6.setForeground(new Color(255, 255, 255));
-		nombre6.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		nombre6.setBounds(133, 388, 85, 41);
-		panelResultados.add(nombre6);
+		rdbtnAsturias = new JRadioButton("");
+		rdbtnAsturias.setBackground(new Color(202, 233, 188));
+		rdbtnAsturias.setBounds(467, 110, 28, 21);
+		panelComunidades.add(rdbtnAsturias);
 
-		foto6 = new JLabel("");
-		foto6.setBounds(85, 439, 133, 116);
-		panelResultados.add(foto6);
+		rdbtnCantabria = new JRadioButton("");
+		rdbtnCantabria.setBackground(new Color(197, 188, 235));
+		rdbtnCantabria.setBounds(539, 115, 21, 21);
+		panelComunidades.add(rdbtnCantabria);
 
-		septimoPuesto = new JLabel("");
-		septimoPuesto.setBounds(290, 388, 45, 41);
-		primerPuesto.setIcon(new ImageIcon("src/Imagenes/7.png"));
-		panelResultados.add(septimoPuesto);
+		lblEspana = new JLabel("");
+		lblEspana.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEspana.setBounds(202, 10, 830, 621);
+		panelComunidades.add(lblEspana);
+		lblEspana.setIcon(new ImageIcon("src/Imagenes/espana.png"));
 
-		foto7 = new JLabel("");
-		foto7.setBounds(290, 439, 133, 116);
-		panelResultados.add(foto7);
-
-		nombre7 = new JLabel("");
-		nombre7.setForeground(new Color(255, 255, 255));
-		nombre7.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		nombre7.setBounds(338, 388, 85, 41);
-		panelResultados.add(nombre7);
-
-		octavoPuesto = new JLabel("");
-		octavoPuesto.setBounds(478, 388, 45, 41);
-		primerPuesto.setIcon(new ImageIcon("src/Imagenes/8.png"));
-		panelResultados.add(octavoPuesto);
-
-		nombre8 = new JLabel("");
-		nombre8.setForeground(new Color(255, 255, 255));
-		nombre8.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		nombre8.setBounds(526, 388, 85, 41);
-		panelResultados.add(nombre8);
-
-		foto8 = new JLabel("");
-		foto8.setBounds(478, 439, 133, 116);
-		panelResultados.add(foto8);
-
-		novenoPuesto = new JLabel("");
-		novenoPuesto.setBounds(682, 388, 45, 41);
-		primerPuesto.setIcon(new ImageIcon("src/Imagenes/9.png"));
-		panelResultados.add(novenoPuesto);
-
-		nombre9 = new JLabel("");
-		nombre9.setForeground(new Color(255, 255, 255));
-		nombre9.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		nombre9.setBounds(730, 388, 85, 41);
-		panelResultados.add(nombre9);
-
-		foto9 = new JLabel("");
-		foto9.setBounds(682, 439, 133, 116);
-		panelResultados.add(foto9);
-
-		nombre10 = new JLabel("");
-		nombre10.setForeground(new Color(255, 255, 255));
-		nombre10.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		nombre10.setBounds(948, 388, 85, 41);
-		panelResultados.add(nombre10);
-
-		decimoPuesto = new JLabel("");
-		decimoPuesto.setBounds(900, 388, 45, 41);
-		primerPuesto.setIcon(new ImageIcon("src/Imagenes/10.png"));
-		panelResultados.add(decimoPuesto);
-
-		foto10 = new JLabel("");
-		foto10.setBounds(900, 439, 133, 116);
-		panelResultados.add(foto10);
-
-		lblFondoFinal = new JLabel("");
-		lblFondoFinal.setBounds(0, 0, 1138, 636);
-		lblFondoFinal.setIcon(new ImageIcon("src/Imagenes/fondo2.jpg"));
-		panelResultados.add(lblFondoFinal);
+		lblFondo2 = new JLabel("");
+		lblFondo2.setBounds(0, 0, 1138, 636);
+		lblFondo2.setIcon(new ImageIcon("src/Imagenes/fondo2.jpg"));
+		panelComunidades.add(lblFondo2);
 
 		panelInicioSesion = new JPanel();
 		panelInicioSesion.setBounds(0, 0, 1138, 636);
@@ -373,13 +500,6 @@ public class Vista extends JFrame {
 		Border border15 = BorderFactory.createLineBorder(Color.WHITE, 2);
 		lblBorde.setBorder(border15);
 		panelInicioSesion.add(lblBorde);
-
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Recuerdame en este diapositivo");
-		chckbxNewCheckBox.setForeground(new Color(255, 255, 255));
-		chckbxNewCheckBox.setBackground(new Color(0, 115, 170));
-		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxNewCheckBox.setBounds(408, 313, 286, 23);
-		panelInicioSesion.add(chckbxNewCheckBox);
 
 		lblLogin = new JLabel("LOGIN");
 		lblLogin.setForeground(new Color(255, 255, 255));
@@ -754,7 +874,6 @@ public class Vista extends JFrame {
 		lblFondo3.setBounds(0, 0, 1138, 638);
 		lblFondo3.setIcon(new ImageIcon("src/Imagenes/fondo2.jpg"));
 		panelArtistas.add(lblFondo3);
-		
 
 		panelProceso = new JPanel();
 		panelProceso.setBackground(new Color(22, 20, 28));
@@ -778,11 +897,6 @@ public class Vista extends JFrame {
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblNewLabel_4.setBounds(373, 24, 344, 49);
 		panelProceso.add(lblNewLabel_4);
-
-		JProgressBar progressBar = new JProgressBar();
-		progressBar.setValue(20);
-		progressBar.setBounds(499, 584, 146, 21);
-		panelProceso.add(progressBar);
 
 		PanelInicio = new JPanel();
 		PanelInicio.setBackground(new Color(0, 0, 0));
@@ -824,133 +938,7 @@ public class Vista extends JFrame {
 		lblFondoInicio.setBounds(0, 0, 1138, 636);
 		lblFondoInicio.setIcon(new ImageIcon("src/Imagenes/ben.jpg"));
 		PanelInicio.add(lblFondoInicio);
-		Border border5 = BorderFactory.createLineBorder(Color.WHITE, 3);
-		Border border3 = BorderFactory.createLineBorder(Color.WHITE, 2);
-		Border border2 = BorderFactory.createLineBorder(Color.WHITE, 2);
-
-		panelComunidades = new JPanel();
-		panelComunidades.setBounds(0, 0, 1138, 636);
-		contentPane.add(panelComunidades);
-		panelComunidades.setLayout(null);
-
-		lblBorde2 = new JLabel("");
-		Border border = BorderFactory.createLineBorder(Color.WHITE, 2);
-		lblBorde2.setBorder(border);
-		lblBorde2.setBounds(209, 24, 768, 570);
-
-		panelComunidades.add(lblBorde2);
-
-		lblNewLabel_3 = new JLabel("Introduce Tu Comunidad Autónoma A Traves De Los Botones");
-		lblNewLabel_3.setForeground(new Color(255, 255, 255));
-		lblNewLabel_3.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 20));
-		lblNewLabel_3.setBounds(317, 30, 586, 27);
-		panelComunidades.add(lblNewLabel_3);
-
-		rdbtnMelilla = new JRadioButton("MELILLA");
-		rdbtnMelilla.setBackground(Color.PINK);
-		rdbtnMelilla.setBounds(562, 502, 70, 15);
-		panelComunidades.add(rdbtnMelilla);
-
-		rdbtnCeuta = new JRadioButton("CEUTA");
-		rdbtnCeuta.setBackground(Color.PINK);
-		rdbtnCeuta.setBounds(502, 472, 70, 15);
-		panelComunidades.add(rdbtnCeuta);
-
-		rdbtnCanarias = new JRadioButton("");
-		rdbtnCanarias.setBackground(new Color(1, 45, 92));
-		rdbtnCanarias.setBounds(774, 450, 21, 15);
-		panelComunidades.add(rdbtnCanarias);
-
-		rdbtnBaleares = new JRadioButton("");
-		rdbtnBaleares.setBackground(new Color(232, 227, 187));
-		rdbtnBaleares.setBounds(804, 283, 21, 15);
-		panelComunidades.add(rdbtnBaleares);
-
-		rdbtnLaRioja = new JRadioButton("");
-		rdbtnLaRioja.setBackground(new Color(235, 188, 233));
-		rdbtnLaRioja.setBounds(596, 160, 21, 21);
-		panelComunidades.add(rdbtnLaRioja);
-
-		rdbtnMurcia = new JRadioButton("");
-		rdbtnMurcia.setBackground(new Color(202, 233, 188));
-		rdbtnMurcia.setBounds(641, 364, 21, 21);
-		panelComunidades.add(rdbtnMurcia);
-
-		rdbtnAndalucia = new JRadioButton("");
-		rdbtnAndalucia.setBackground(new Color(232, 188, 188));
-		rdbtnAndalucia.setBounds(539, 380, 21, 21);
-		panelComunidades.add(rdbtnAndalucia);
-
-		rdbtnValencia = new JRadioButton("");
-		rdbtnValencia.setBackground(new Color(232, 188, 188));
-		rdbtnValencia.setBounds(673, 304, 21, 21);
-		panelComunidades.add(rdbtnValencia);
-
-		rdbtnExtremadura = new JRadioButton("");
-		rdbtnExtremadura.setBackground(new Color(197, 188, 235));
-		rdbtnExtremadura.setBounds(474, 303, 21, 21);
-		panelComunidades.add(rdbtnExtremadura);
-
-		rdbtnCLM = new JRadioButton("");
-		rdbtnCLM.setBackground(new Color(235, 188, 233));
-		rdbtnCLM.setBounds(596, 303, 21, 21);
-		panelComunidades.add(rdbtnCLM);
-
-		rdbtnMadrid = new JRadioButton("");
-		rdbtnMadrid.setBackground(new Color(197, 188, 235));
-		rdbtnMadrid.setBounds(559, 248, 21, 21);
-		panelComunidades.add(rdbtnMadrid);
-
-		rdbtnCYL = new JRadioButton("");
-		rdbtnCYL.setBackground(new Color(189, 219, 233));
-		rdbtnCYL.setBounds(508, 180, 21, 21);
-		panelComunidades.add(rdbtnCYL);
-
-		rdbtnCatalunya = new JRadioButton("");
-		rdbtnCatalunya.setBackground(new Color(232, 227, 187));
-		rdbtnCatalunya.setBounds(752, 191, 21, 21);
-		panelComunidades.add(rdbtnCatalunya);
-
-		rdbtnAragon = new JRadioButton("");
-		rdbtnAragon.setBackground(new Color(202, 233, 188));
-		rdbtnAragon.setBounds(673, 193, 21, 21);
-		panelComunidades.add(rdbtnAragon);
-
-		rdbtnNavarra = new JRadioButton("");
-		rdbtnNavarra.setBackground(new Color(232, 188, 188));
-		rdbtnNavarra.setBounds(629, 146, 21, 21);
-		panelComunidades.add(rdbtnNavarra);
-
-		rdbtnPaisVasco = new JRadioButton("");
-		rdbtnPaisVasco.setBackground(new Color(232, 227, 187));
-		rdbtnPaisVasco.setBounds(596, 125, 21, 21);
-		panelComunidades.add(rdbtnPaisVasco);
-
-		rdbtnGalicia = new JRadioButton("");
-		rdbtnGalicia.setBackground(new Color(232, 188, 188));
-		rdbtnGalicia.setBounds(397, 135, 28, 21);
-		panelComunidades.add(rdbtnGalicia);
-
-		rdbtnAsturias = new JRadioButton("");
-		rdbtnAsturias.setBackground(new Color(202, 233, 188));
-		rdbtnAsturias.setBounds(467, 110, 28, 21);
-		panelComunidades.add(rdbtnAsturias);
-
-		rdbtnCantabria = new JRadioButton("");
-		rdbtnCantabria.setBackground(new Color(197, 188, 235));
-		rdbtnCantabria.setBounds(539, 115, 21, 21);
-		panelComunidades.add(rdbtnCantabria);
-
-		lblEspana = new JLabel("");
-		lblEspana.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEspana.setBounds(202, 10, 830, 621);
-		panelComunidades.add(lblEspana);
-		lblEspana.setIcon(new ImageIcon("src/Imagenes/espana.png"));
-
-		lblFondo2 = new JLabel("");
-		lblFondo2.setBounds(0, 0, 1138, 636);
-		lblFondo2.setIcon(new ImageIcon("src/Imagenes/fondo2.jpg"));
-		panelComunidades.add(lblFondo2);
+		
 
 		timer = new Timer(1000, null);
 	}

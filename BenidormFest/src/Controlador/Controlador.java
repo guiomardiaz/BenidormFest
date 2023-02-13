@@ -995,9 +995,7 @@ public class Controlador implements ActionListener {
 		vista.nombre10.setText(artistas.get(9).getNombre());
 		vista.foto10.setIcon(new ImageIcon(artistas.get(9).getUrlFoto()));
 		vista.decimoPuesto.setIcon(new ImageIcon("src/Imagenes/10.png"));
-		for(int i = 0; i<artistas.size();i++) {
-			System.out.println(artistas.get(i).toString());
-		}
+		
 		for(int i = 0; i<artistas.size(); i++) {
 	updates(artistas.get(i).getVotosTotales(), artistas.get(i).getNombre(), conexion);
 		}
